@@ -3539,7 +3539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: de2ffc8b16fafca40a106a0c62fc1d27, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 0e338fba54c63a1469bb844beb876f67, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -24287,7 +24287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: add0f0d996b17fb40894aa611c792271, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 9c36fa215ceb99648a6b21ec4f376b01, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -24314,23 +24314,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: b815cd6c-6c53-4bcf-8ba5-acb8abfd2eec
-    m_ActionName: Player/Movement
+    m_ActionId: 559be119-b0d1-4837-8ea8-6079c417c53e
+    m_ActionName: Player/Movement[/Keyboard/h,/Keyboard/n,/Keyboard/b,/Keyboard/m]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 05a13790-0490-4e77-be47-ca26039564c7
+    m_ActionId: d7f541ee-c5b9-4fc1-af6e-9af3d252fd1c
     m_ActionName: Player/Interact
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: b11da54d-0858-4113-b589-48f826494218
+    m_ActionId: 749fce00-bfb0-405b-8184-a0402fe3eee7
     m_ActionName: Player/Invent
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 4b677e7b-253c-4a7d-af24-e7bdd9d18c03
+    m_ActionId: 90eddc08-3293-4f78-9ea2-d3a3922649d6
     m_ActionName: Player/Atk/Def
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 6b9ad67d-a2de-44d3-97ab-b660f574dfa2
+    m_ActionId: 0e7e2662-9caf-45fc-9369-8f6c0cc7b6de
     m_ActionName: Player/Usar
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
