@@ -73,6 +73,8 @@ public class PlayerIsolationController : MonoBehaviour
         {
             Gizmos.DrawWireSphere(lightSource.position, safeLightRadius);
 
+            //a
+
             
         }
     }
