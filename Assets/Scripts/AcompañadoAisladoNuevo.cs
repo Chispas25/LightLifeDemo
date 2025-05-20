@@ -1,3 +1,4 @@
+//c
  using System.Collections.Generic;
  using UnityEngine;
  using UnityEngine.Rendering.Universal;
@@ -73,6 +74,8 @@ public class PlayerIsolationController : MonoBehaviour
             Gizmos.DrawWireSphere(lightSource.position, safeLightRadius);
 
             //a
+
+            
         }
     }
 
