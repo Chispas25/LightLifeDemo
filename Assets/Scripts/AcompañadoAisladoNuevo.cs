@@ -1,3 +1,4 @@
+//c
  using System.Collections.Generic;
  using UnityEngine;
  using UnityEngine.Rendering.Universal;
@@ -71,6 +72,8 @@ public class PlayerIsolationController : MonoBehaviour
         foreach (Transform lightSource in safeLightSources)
         {
             Gizmos.DrawWireSphere(lightSource.position, safeLightRadius);
+
+            //a
 
             
         }
