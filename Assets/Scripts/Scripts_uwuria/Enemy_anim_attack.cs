@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Animation_Attack : MonoBehaviour
+public class Enemy_anim_attack : MonoBehaviour
 {
-    //animacion
     private Animator attackAnimator;
     public bool Attack = false;
-
-    //rango
 
     //esperar
     public int framesToWait = 30;
@@ -25,21 +22,27 @@ public class Animation_Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        attackAnimator.SetFloat("Horizontal", moveX);
+        attackAnimator.SetFloat("Vertical", moveY);
+
         currentFrame++;
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            attackAnimator.SetBool("Attack", true);
+            attackAnimator.SetBool("LookforPlayer", true);
 
         }
         else
         {
 
-           // currentFrame++;
+            // currentFrame++;
 
             if (currentFrame > framesToWait)
             {
                 currentFrame = 0;
-                attackAnimator.SetBool("Attack", false);
+                attackAnimator.SetBool("LookforPlayer", false);
 
             }
 
@@ -51,14 +54,3 @@ public class Animation_Attack : MonoBehaviour
 
         }
     }
-
-
-
-
-
-
-
-
-
-
-
