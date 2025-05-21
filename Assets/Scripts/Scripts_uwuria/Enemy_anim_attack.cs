@@ -7,6 +7,12 @@ public class Enemy_anim_attack : MonoBehaviour
     private Animator attackAnimator;
     public bool Attack = false;
 
+    //orientacion bichi
+    private Rigidbody2D rb;
+    public float detectionDistance = 5f;
+    public LayerMask playerLayer;
+
+
     //esperar
     public int framesToWait = 30;
     //uwuw
@@ -16,6 +22,7 @@ public class Enemy_anim_attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         attackAnimator = GetComponent<Animator>();
     }
 
@@ -47,10 +54,34 @@ public class Enemy_anim_attack : MonoBehaviour
             }
 
         }
-            ;
+        ;
 
-
-
-
-        }
     }
+    bool LookForPlayer(out Transform detectedPlayer)
+    {
+        Collider2D hit = Physics2D.OverlapCircle(rb.position, detectionDistance, playerLayer);
+        if (hit != null)
+        {
+            detectedPlayer = hit.transform;
+            return true;
+        }
+
+        detectedPlayer = null;
+        return false;
+    }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(rb.position, detectionDistance);
+    }
+
+
+
+
+
+
+
+
+
+
+}
