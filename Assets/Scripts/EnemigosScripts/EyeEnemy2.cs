@@ -80,9 +80,11 @@ public class EyeEnemy2 : MonoBehaviour
         }
     }
 
-    bool LookForPlayer(out Transform detectedPlayer)
+    /*bool LookForPlayer(out Transform detectedPlayer)
     {
         RaycastHit2D hit = Physics2D.Raycast(rb.position, transform.right, detectionDistance, playerLayer);
+
+        Debug.DrawRay(rb.position, transform.right * detectionDistance, Color.red);
         if (hit.collider != null)
         {
             detectedPlayer = hit.collider.transform;
@@ -91,7 +93,20 @@ public class EyeEnemy2 : MonoBehaviour
 
         detectedPlayer = null;
         return false;
+    }*/
+
+    bool LookForPlayer(out Transform detectedPlayer)
+{
+    Collider2D hit = Physics2D.OverlapCircle(rb.position, detectionDistance, playerLayer);
+    if (hit != null)
+    {
+        detectedPlayer = hit.transform;
+        return true;
     }
+
+    detectedPlayer = null;
+    return false;
+}
 
     void StartChase(Transform player)
     {

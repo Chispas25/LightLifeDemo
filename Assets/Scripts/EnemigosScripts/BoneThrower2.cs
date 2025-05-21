@@ -87,18 +87,18 @@ public class BoneThrower2 : MonoBehaviour
         // Puedes añadir física o lógica para el proyectil aquí.
     }
 
-    bool LookForPlayer(out Transform player)
+    bool LookForPlayer(out Transform detectedPlayer)
+{
+    Collider2D hit = Physics2D.OverlapCircle(rb.position, detectionDistance, playerLayer);
+    if (hit != null)
     {
-        RaycastHit2D hit = Physics2D.Raycast(rb.position, transform.right, detectionDistance, playerLayer);
-        if (hit.collider != null)
-        {
-            player = hit.collider.transform;
-            return true;
-        }
-
-        player = null;
-        return false;
+        detectedPlayer = hit.transform;
+        return true;
     }
+
+    detectedPlayer = null;
+    return false;
+}
 
     void StartAttack(Transform player)
     {
