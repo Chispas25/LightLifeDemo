@@ -40,7 +40,7 @@ public class AcompañadoAislado : MonoBehaviour
 
             amAislado = true;
 
-            
+
 
 
 
@@ -49,7 +49,9 @@ public class AcompañadoAislado : MonoBehaviour
         else
         {
 
-            amAislado=false;
+            amAislado = false;
+            //a
+    
         }
     }
 }
