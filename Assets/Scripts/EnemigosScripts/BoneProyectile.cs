@@ -7,12 +7,19 @@ public class BoneProjectile : MonoBehaviour
     public int damage = 1;
 
     private float timer = 0f;
+    private Vector2 moveDirection = Vector2.zero;
+
+    public void SetDirection(Vector2 direction)
+    {
+        moveDirection = direction.normalized;
+        // No rotamos el proyectil porque la animación ya lo representa visualmente
+    }
 
     void Update()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
-        timer += Time.deltaTime;
+        transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
 
+        timer += Time.deltaTime;
         if (timer >= lifeTime)
             Destroy(gameObject);
     }
@@ -21,13 +28,12 @@ public class BoneProjectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //other.GetComponent<PlayerHealth>()?.TakeDamage(damage);
-            //Aqui tambien influye la vida
+            // other.GetComponent<PlayerHealth>()?.TakeDamage(damage);
             Destroy(gameObject);
         }
         else if (!other.isTrigger)
         {
-            Destroy(gameObject); // Se destruye al chocar con muros, etc.
+            Destroy(gameObject);
         }
     }
 }

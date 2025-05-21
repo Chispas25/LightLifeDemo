@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4735130561442285693}
   - component: {fileID: 4255731573908749106}
   m_Layer: 0
-  m_Name: Huesito
+  m_Name: Huesito K
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ Animator:
   m_GameObject: {fileID: 8100695965922197723}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b0c932ffd927e744698ec774c505723d, type: 2}
+  m_Controller: {fileID: 9100000, guid: eed86be10bb8cda4187738a0c89747ab, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 147496402, guid: bcb46cca3a62e8748a7fc6f0ea19d4aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -157,4 +157,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.37
+  m_Radius: 0.09
