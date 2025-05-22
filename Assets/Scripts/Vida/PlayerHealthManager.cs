@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerHealthManager : MonoBehaviour
 {
+    private LifeBarUI vidaUI;
+    public PlayerHealthUI healthUI; // Asignar desde el inspector
     public int maxLives = 3;
     public float reviveDuration = 6f;
     public float invulnerabilityDuration = 2f;
@@ -28,6 +30,12 @@ public class PlayerHealthManager : MonoBehaviour
         movementScript = GetComponent<PlayerMovement>();
         inputComponent = GetComponent<PlayerInput>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        // Buscar LifeBarUI en hijos
+        vidaUI = GetComponentInChildren<LifeBarUI>();
+        if (vidaUI != null)
+            vidaUI.SetMaxLives(maxLives);
+        else
+            Debug.LogWarning("No se encontró LifeBarUI como hijo del jugador.");
     }
 
     void Update()
@@ -45,12 +53,26 @@ public class PlayerHealthManager : MonoBehaviour
     {
         if (isDead || isInvulnerable) return;
 
+        
+
         currentLives -= amount;
+
+        // Actualizar barra de vida
+        if (vidaUI != null)
+            vidaUI.UpdateBar(currentLives);
 
         if (currentLives <= 0)
             Die();
         else
             TriggerInvulnerability();
+
+        if (healthUI != null)
+        {
+
+            Debug.Log("Llamando a la UI de vida desde TakeDamage");
+            healthUI.ShowDamageUI();
+        }
+            
     }
 
     void TriggerInvulnerability()
@@ -84,6 +106,9 @@ public class PlayerHealthManager : MonoBehaviour
 
         isDead = false;
         currentLives = 2;
+
+        if (vidaUI != null)
+            vidaUI.UpdateBar(currentLives);
 
         if (playerLight != null)
             playerLight.enabled = true;
