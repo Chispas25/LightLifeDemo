@@ -30,6 +30,13 @@ public class EyeEnemy2 : MonoBehaviour
 
         if (chasing && targetPlayer != null)
         {
+            PlayerHealthManager health = targetPlayer.GetComponent<PlayerHealthManager>();
+            if (health != null && health.IsDead())
+            {
+                StopChase();
+                return;
+            }
+
             float distance = Vector2.Distance(rb.position, targetPlayer.position);
 
             // Actualiza la dirección para la animación
@@ -84,22 +91,38 @@ public class EyeEnemy2 : MonoBehaviour
             // Calcular dirección hacia el jugador
             Vector2 dir = ((Vector2)targetPlayer.position - rb.position).normalized;
 
-            // Enviar la dirección al Animator
+            // Enviar dirección al Animator
             animator.SetFloat("Dirx", dir.x);
             animator.SetFloat("Diry", dir.y);
-            // Activar animación de ataque
             animator.SetTrigger("Attack");
 
-            // Aplicar retroceso al jugador
+            // Retroceso físico
             Rigidbody2D playerRb = targetPlayer.GetComponent<Rigidbody2D>();
             if (playerRb != null)
             {
                 Vector2 knockbackDir = (playerRb.position - rb.position).normalized;
-                playerRb.velocity = knockbackDir * 10f; // Ajusta fuerza a tu gusto
+                playerRb.velocity = knockbackDir * knockbackForce; // Usa la variable pública
             }
 
-            // Aplicar daño si tienes un script de salud
-            // targetPlayer.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+            // Aplicar daño
+            PlayerHealthManager health = targetPlayer.GetComponent<PlayerHealthManager>();
+            if (health != null)
+            {
+                health.TakeDamage(damage);
+            }
+
+            // Desactivar movimiento e input temporalmente
+            PlayerMovement movement = targetPlayer.GetComponent<PlayerMovement>();
+            var input = targetPlayer.GetComponent<UnityEngine.InputSystem.PlayerInput>();
+
+            if (movement != null && input != null)
+            {
+                movement.enabled = false;
+                input.enabled = false;
+
+                // Reactivar después de 0.5 segundos
+                StartCoroutine(ReenablePlayerControls(targetPlayer.gameObject, 0.5f));
+            }
 
             cooldownTimer = attackCooldown;
             Debug.Log("El ojo ataca al jugador.");
@@ -132,4 +155,26 @@ public class EyeEnemy2 : MonoBehaviour
         chasing = false;
         Debug.Log("Jugador perdido. Volviendo a patrullar.");
     }
+
+    System.Collections.IEnumerator ReenablePlayer(GameObject player, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        var moveScript = player.GetComponent<PlayerMovement>();
+        var input = player.GetComponent<UnityEngine.InputSystem.PlayerInput>();
+
+        if (moveScript != null) moveScript.enabled = true;
+        if (input != null) input.enabled = true;
+    }
+    
+    System.Collections.IEnumerator ReenablePlayerControls(GameObject player, float delay)
+{
+    yield return new WaitForSeconds(delay);
+
+    var moveScript = player.GetComponent<PlayerMovement>();
+    var input = player.GetComponent<UnityEngine.InputSystem.PlayerInput>();
+
+    if (moveScript != null) moveScript.enabled = true;
+    if (input != null) input.enabled = true;
+}
 }

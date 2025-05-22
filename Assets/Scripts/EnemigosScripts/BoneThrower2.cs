@@ -54,6 +54,13 @@ public class BoneThrower2 : MonoBehaviour
 
             }
 
+            var health = targetPlayer.GetComponent<PlayerHealthManager>();
+            if (health == null || health.IsDead())
+            {
+                StopAttack(); // ← Se detiene si está muerto
+                return;
+            }
+
 
 
             float lostRange = detectionDistance * 1.5f;
@@ -95,6 +102,9 @@ public class BoneThrower2 : MonoBehaviour
     public void Shoot()
     {
         if (targetPlayer == null) return;
+
+        PlayerHealthManager health = targetPlayer.GetComponent<PlayerHealthManager>();
+        if (health != null && health.IsDead()) return;
 
         Vector2 directionToPlayer = (targetPlayer.position - firePoint.position).normalized;
 
