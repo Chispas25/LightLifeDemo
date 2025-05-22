@@ -7,10 +7,12 @@ public class EyeEnemy2 : MonoBehaviour
     public float attackRange = 1f;
     public float attackCooldown = 2f;
     public int damage = 1;
+    public float knockbackForce = 1.5f;
     public float detectionDistance = 5f;
     public LayerMask playerLayer;
 
     private Rigidbody2D rb;
+    private Animator animator;
     private float cooldownTimer = 0f;
     private int currentPatrolIndex = 0;
     private Transform targetPlayer;
@@ -19,6 +21,7 @@ public class EyeEnemy2 : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -28,6 +31,11 @@ public class EyeEnemy2 : MonoBehaviour
         if (chasing && targetPlayer != null)
         {
             float distance = Vector2.Distance(rb.position, targetPlayer.position);
+
+            // Actualiza la dirección para la animación
+            Vector2 dir = (targetPlayer.position - transform.position).normalized;
+            animator.SetFloat("DirX", dir.x);
+            animator.SetFloat("DirY", dir.y);
 
             if (distance > attackRange)
                 MoveTowards(targetPlayer.position);
@@ -61,7 +69,6 @@ public class EyeEnemy2 : MonoBehaviour
         Vector2 newPos = rb.position + direction * speed * Time.fixedDeltaTime;
         rb.MovePosition(newPos);
 
-        // Flip visual según dirección horizontal
         if (direction.x != 0)
         {
             Vector3 scale = transform.localScale;
@@ -74,39 +81,43 @@ public class EyeEnemy2 : MonoBehaviour
     {
         if (cooldownTimer <= 0f)
         {
-            Debug.Log("El ojo golpea al jugador.");
+            // Calcular dirección hacia el jugador
+            Vector2 dir = ((Vector2)targetPlayer.position - rb.position).normalized;
+
+            // Enviar la dirección al Animator
+            animator.SetFloat("Dirx", dir.x);
+            animator.SetFloat("Diry", dir.y);
+            // Activar animación de ataque
+            animator.SetTrigger("Attack");
+
+            // Aplicar retroceso al jugador
+            Rigidbody2D playerRb = targetPlayer.GetComponent<Rigidbody2D>();
+            if (playerRb != null)
+            {
+                Vector2 knockbackDir = (playerRb.position - rb.position).normalized;
+                playerRb.velocity = knockbackDir * 10f; // Ajusta fuerza a tu gusto
+            }
+
+            // Aplicar daño si tienes un script de salud
             // targetPlayer.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+
             cooldownTimer = attackCooldown;
+            Debug.Log("El ojo ataca al jugador.");
         }
     }
 
-    /*bool LookForPlayer(out Transform detectedPlayer)
+    bool LookForPlayer(out Transform detectedPlayer)
     {
-        RaycastHit2D hit = Physics2D.Raycast(rb.position, transform.right, detectionDistance, playerLayer);
-
-        Debug.DrawRay(rb.position, transform.right * detectionDistance, Color.red);
-        if (hit.collider != null)
+        Collider2D hit = Physics2D.OverlapCircle(rb.position, detectionDistance, playerLayer);
+        if (hit != null)
         {
-            detectedPlayer = hit.collider.transform;
+            detectedPlayer = hit.transform;
             return true;
         }
 
         detectedPlayer = null;
         return false;
-    }*/
-
-    bool LookForPlayer(out Transform detectedPlayer)
-{
-    Collider2D hit = Physics2D.OverlapCircle(rb.position, detectionDistance, playerLayer);
-    if (hit != null)
-    {
-        detectedPlayer = hit.transform;
-        return true;
     }
-
-    detectedPlayer = null;
-    return false;
-}
 
     void StartChase(Transform player)
     {
