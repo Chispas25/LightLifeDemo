@@ -3838,6 +3838,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   framesToWait: 30
+  attackRange: 1.5
+  attackDamage: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackPoint: {fileID: 0}
 --- !u!114 &344678690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3871,6 +3877,24 @@ MonoBehaviour:
   reviveDuration: 6
   invulnerabilityDuration: 2
   playerLight: {fileID: 1894206888}
+--- !u!1 &397426359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2158530418111091530, guid: be1b93b5b7d3e8a48a9d3b197e72611c, type: 3}
+  m_PrefabInstance: {fileID: 1567675895}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &397426366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397426359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25aca64afb53d41418ef702fabdfb25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
 --- !u!1 &429433987
 GameObject:
   m_ObjectHideFlags: 0
@@ -6685,6 +6709,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   framesToWait: 30
+  attackRange: 1.5
+  attackDamage: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  attackPoint: {fileID: 904752613}
 --- !u!114 &904752619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23629,7 +23659,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2158530418111091530, guid: be1b93b5b7d3e8a48a9d3b197e72611c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 397426366}
   m_SourcePrefab: {fileID: 100100000, guid: be1b93b5b7d3e8a48a9d3b197e72611c, type: 3}
 --- !u!1 &1598247316
 GameObject:
@@ -23957,6 +23990,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   framesToWait: 30
+  attackRange: 1.5
+  attackDamage: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackPoint: {fileID: 0}
 --- !u!114 &1598247327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25569,6 +25608,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   framesToWait: 30
+  attackRange: 1.5
+  attackDamage: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackPoint: {fileID: 0}
 --- !u!114 &1781034467
 MonoBehaviour:
   m_ObjectHideFlags: 0

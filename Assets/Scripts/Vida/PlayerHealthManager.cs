@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerHealthManager : MonoBehaviour
 {
     private LifeBarUI vidaUI;
+
+    private PlayerHealthManager healthManager;
     public PlayerHealthUI healthUI; // Asignar desde el inspector
     public int maxLives = 3;
     public float reviveDuration = 6f;
@@ -26,6 +28,8 @@ public class PlayerHealthManager : MonoBehaviour
 
     void Awake()
     {
+        healthManager = GetComponent<PlayerHealthManager>();
+
         currentLives = maxLives;
         movementScript = GetComponent<PlayerMovement>();
         inputComponent = GetComponent<PlayerInput>();
@@ -46,6 +50,16 @@ public class PlayerHealthManager : MonoBehaviour
             invulnerabilityTimer -= Time.deltaTime;
             if (invulnerabilityTimer <= 0f)
                 isInvulnerable = false;
+        }
+        if (healthManager != null)
+        {
+            if (healthManager.IsDead())
+            {
+                Debug.Log("El jugador ha muerto");
+                if (movementScript.enabled) movementScript.enabled = false;
+                if (playerLight.enabled) playerLight.enabled = false;
+                return;
+            }
         }
     }
 
