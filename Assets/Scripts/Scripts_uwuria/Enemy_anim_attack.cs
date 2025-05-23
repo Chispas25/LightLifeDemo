@@ -57,24 +57,7 @@ public class Enemy_anim_attack : MonoBehaviour
         ;
 
     }
-    bool LookForPlayer(out Transform detectedPlayer)
-    {
-        Collider2D hit = Physics2D.OverlapCircle(rb.position, detectionDistance, playerLayer);
-        if (hit != null)
-        {
-            detectedPlayer = hit.transform;
-            return true;
-        }
-
-        detectedPlayer = null;
-        return false;
-    }
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(rb.position, detectionDistance);
-    }
-
+   
 
 
 
