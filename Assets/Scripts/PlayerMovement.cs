@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public Vector2 LastMoveDirection { get; private set; } = Vector2.right;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -26,6 +27,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = moveInput * moveSpeed;
 
-        //a
+        
     }
 }

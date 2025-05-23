@@ -11,6 +11,8 @@ public class BoneThrower2 : MonoBehaviour
     public LayerMask playerLayer;
 
     private Rigidbody2D rb;
+    private Animator animator;
+
     private float cooldownTimer = 0f;
     private int currentPatrolIndex = 0;
     private Transform targetPlayer;
@@ -19,6 +21,13 @@ public class BoneThrower2 : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>(); // Asegúrate de que el Animator esté en el mismo GameObject
+
+
+        if (rb == null) Debug.LogError("Rigidbody2D no encontrado.");
+        if (animator == null) Debug.LogError("Animator no encontrado.");
+        if (firePoint == null) Debug.LogError("FirePoint no asignado.");
+        if (bonePrefab == null) Debug.LogError("BonePrefab no asignado.");
     }
 
     void FixedUpdate()
@@ -29,7 +38,7 @@ public class BoneThrower2 : MonoBehaviour
         {
             Vector2 dir = ((Vector2)targetPlayer.position - rb.position).normalized;
 
-            // Visual Flip
+            // Flip visual
             if (dir.x != 0)
             {
                 Vector3 scale = transform.localScale;
@@ -39,9 +48,20 @@ public class BoneThrower2 : MonoBehaviour
 
             if (cooldownTimer <= 0f)
             {
-                Shoot();
+                animator.SetTrigger("Summon"); // Activar animación de invocación
                 cooldownTimer = attackCooldown;
+
+
             }
+
+            var health = targetPlayer.GetComponent<PlayerHealthManager>();
+            if (health == null || health.IsDead())
+            {
+                StopAttack(); // ← Se detiene si está muerto
+                return;
+            }
+
+
 
             float lostRange = detectionDistance * 1.5f;
             if (Vector2.Distance(rb.position, targetPlayer.position) > lostRange)
@@ -71,7 +91,6 @@ public class BoneThrower2 : MonoBehaviour
         Vector2 newPos = rb.position + dir * speed * Time.fixedDeltaTime;
         rb.MovePosition(newPos);
 
-        // Visual Flip
         if (dir.x != 0)
         {
             Vector3 scale = transform.localScale;
@@ -80,28 +99,46 @@ public class BoneThrower2 : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public void Shoot() 
     {
-        GameObject bone = Instantiate(bonePrefab, firePoint.position, firePoint.rotation);
-        Debug.Log("¡Lanzando hueso!");
-        // Puedes añadir física o lógica para el proyectil aquí.
-    }
+        if (targetPlayer == null) return;
+
+        PlayerHealthManager health = targetPlayer.GetComponent<PlayerHealthManager>();
+        if (health != null && health.IsDead()) return;
+
+        Vector2 directionToPlayer = (targetPlayer.position - firePoint.position).normalized;
+
+        GameObject bone = Instantiate(bonePrefab, firePoint.position, Quaternion.identity);
+        bone.GetComponent<BoneProjectile>()?.SetDirection(directionToPlayer);
+
+        // 🔽 IGNORAR COLISIÓN ENTRE EL PROYECTIL Y EL ENEMIGO
+        Collider2D myCollider = GetComponent<Collider2D>();
+        Collider2D boneCollider = bone.GetComponent<Collider2D>();
+
+        if (myCollider != null && boneCollider != null)
+        {
+            Physics2D.IgnoreCollision(boneCollider, myCollider);
+        }
+
+        Debug.Log("¡Lanzando hueso hacia el jugador!");
+}
 
     bool LookForPlayer(out Transform detectedPlayer)
-{
-    Collider2D hit = Physics2D.OverlapCircle(rb.position, detectionDistance, playerLayer);
-    if (hit != null)
     {
-        detectedPlayer = hit.transform;
-        return true;
-    }
+        Collider2D hit = Physics2D.OverlapCircle(rb.position, detectionDistance, playerLayer);
+        if (hit != null)
+        {
+            detectedPlayer = hit.transform;
+            return true;
+        }
 
-    detectedPlayer = null;
-    return false;
-}
+        detectedPlayer = null;
+        return false;
+    }
 
     void StartAttack(Transform player)
     {
+        animator.SetTrigger("Summon"); // Activar animación de invocación
         targetPlayer = player;
         attacking = true;
         Debug.Log("Jugador a la vista, lanzando huesos.");
@@ -112,5 +149,11 @@ public class BoneThrower2 : MonoBehaviour
         targetPlayer = null;
         attacking = false;
         Debug.Log("Jugador fuera de rango, volviendo a patrullar.");
+    }
+    
+    public void InvokeBone()
+    {
+        GameObject bone = Instantiate(bonePrefab, firePoint.position, firePoint.rotation);
+        Debug.Log("Hueso invocado por evento");
     }
 }
