@@ -40,7 +40,7 @@ public class AcompañadoAislado : MonoBehaviour
 
             amAislado = true;
 
-
+            
 
 
 
