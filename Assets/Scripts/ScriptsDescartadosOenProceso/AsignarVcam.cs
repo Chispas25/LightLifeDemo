@@ -10,6 +10,11 @@ public class AsignarVcam : MonoBehaviour
     void Start()
     {
         myVCam.Priority = 100;
+
+        //a
+        //a
+        //a
+        //a
     }
 
     // Update is called once per frame

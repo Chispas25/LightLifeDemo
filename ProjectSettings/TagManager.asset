@@ -8,6 +8,7 @@ TagManager:
   - Player 2
   - Player3
   - Player4
+  - Patrulla
   layers:
   - Default
   - TransparentFX
@@ -19,12 +20,12 @@ TagManager:
   - P2
   - P3
   - P4
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemigo
+  - Player
+  - Ui p1
+  - Ui p2
+  - Ui p3
+  - Ui p4
   - 
   - 
   - 
