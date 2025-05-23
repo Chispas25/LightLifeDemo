@@ -9,6 +9,7 @@ TagManager:
   - Player3
   - Player4
   - Patrulla
+  - Opciones
   layers:
   - Default
   - TransparentFX
