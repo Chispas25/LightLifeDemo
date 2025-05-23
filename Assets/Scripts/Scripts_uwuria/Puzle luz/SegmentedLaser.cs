@@ -17,13 +17,15 @@ public class SegmentedLaser : MonoBehaviour
     private List<SpriteRenderer> objetosDentro = new List<SpriteRenderer>();
     private bool jugadorDentro = false;
 
+
     void Start()
     {
+
         // Buscar la primera bola para definir la posición del cambio
         Transform[] todosLosObjetos = GameObject.FindObjectsOfType<Transform>();
         foreach (Transform t in todosLosObjetos)
         {
-            if (t.name.StartsWith("Bola"))
+            if (t.name.StartsWith("Bola1"))
             {
                 cambioColorDistancia = t.position.x;
                 break;
@@ -40,7 +42,7 @@ public class SegmentedLaser : MonoBehaviour
             puntoFinal = this.transform;
 
         lineRenderer.useWorldSpace = true;
-        lineRenderer.widthMultiplier = 0.1f;
+        lineRenderer.widthMultiplier = 0.25f;
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
 
         ActualizarLinea(false);
@@ -60,7 +62,9 @@ public class SegmentedLaser : MonoBehaviour
         }
 
         ActualizarLinea(jugadorDentro);
+        
     }
+//hola
 
     void ActualizarLinea(bool jugadorActivo)
     {
@@ -70,7 +74,7 @@ public class SegmentedLaser : MonoBehaviour
         Vector3 puntoCambio = inicio + direccion * cambioColorDistancia;
 
         lineRenderer.SetPosition(0, inicio);
-        //lineRenderer.SetPosition(1, puntoCambio);
+        //lineRenderer.SetPosition(0, puntoCambio);
         lineRenderer.SetPosition(2, fin);
 
         Gradient gradient = new Gradient();
@@ -147,6 +151,10 @@ public class SegmentedLaser : MonoBehaviour
 
         int count = objetosDentro.Count;
         return new Color(r / count, g / count, b / count, 1f);
+
+        
+
     }
+    
 }
 
