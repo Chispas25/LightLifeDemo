@@ -1,6 +1,6 @@
  using System.Collections.Generic;
- using UnityEngine;
- using UnityEngine.Rendering.Universal;
+using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerLightManager : MonoBehaviour
 {
@@ -10,21 +10,26 @@ public class PlayerLightManager : MonoBehaviour
     public float maxIntensity = 1f;
     public float minRadius = 1f;
     public float maxRadius = 5f;
+
     [Header("Parámetros de aislamiento")]
     public float safeLightRadius = 5f;
     public LayerMask obstructionMask;
+
     [Header("Referencias del jugador")]
     public Light2D playerLight;
     public PlayerMovement movementScript;
     public List<Transform> safeLightSources;
+
     private bool isIsolated = false;
     private static List<PlayerLightManager> allPlayers;
+    private PlayerHealthManager healthManager;
 
     void Awake()
     {
         if (allPlayers == null)
             allPlayers = new List<PlayerLightManager>();
-            allPlayers.Add(this);
+
+        allPlayers.Add(this);
     }
 
     void OnDestroy()
@@ -32,23 +37,29 @@ public class PlayerLightManager : MonoBehaviour
         allPlayers.Remove(this);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-
+        healthManager = GetComponent<PlayerHealthManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float closestDistance = float.MaxValue;
+        if (healthManager != null && healthManager.IsDead())
+        {
+            Debug.Log("El jugador ha muerto");
+            if (movementScript.enabled) movementScript.enabled = false;
+            if (playerLight.enabled) playerLight.enabled = false;
+            return;
+        }
+
+        float closestConnectedDistance = float.MaxValue;
         bool isConnected = false;
+
         foreach (var other in allPlayers)
         {
             if (other == this) continue;
+
             float distance = Vector2.Distance(transform.position, other.transform.position);
-            if (distance < closestDistance)
-                closestDistance = distance;
             if (distance <= maxConnectionDistance)
             {
                 Vector2 dir = (other.transform.position - transform.position).normalized;
@@ -56,11 +67,13 @@ public class PlayerLightManager : MonoBehaviour
                 if (!hit)
                 {
                     isConnected = true;
-                    break;
+                    if (distance < closestConnectedDistance)
+                        closestConnectedDistance = distance;
                 }
             }
         }
-        // Verificar salvaguardas
+
+        // Verificar salvaguardas (luces seguras)
         if (!isConnected)
         {
             foreach (Transform source in safeLightSources)
@@ -72,6 +85,7 @@ public class PlayerLightManager : MonoBehaviour
                 }
             }
         }
+
         // Cambiar estado de aislamiento
         if (isConnected && isIsolated)
         {
@@ -85,36 +99,29 @@ public class PlayerLightManager : MonoBehaviour
             playerLight.enabled = false;
             isIsolated = true;
 
-            //Detener físicamente al jugador
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-
                 rb.velocity = Vector2.zero;
                 rb.angularVelocity = 0f;
             }
         }
-        // Calcular efecto visual por distancia (aunque esté aislado)
 
-        float t = Mathf.InverseLerp(0f, maxConnectionDistance, closestDistance);
-        float currentIntensity = Mathf.Lerp(maxIntensity, minIntensity, t);
-        playerLight.intensity = currentIntensity;
-
-
-
-
-
-
+        // Calcular intensidad de luz SOLO si hay conexión
+        if (isConnected && !isIsolated)
+        {
+            float t = Mathf.InverseLerp(0f, maxConnectionDistance, closestConnectedDistance);
+            float currentIntensity = Mathf.Lerp(maxIntensity, minIntensity, t);
+            playerLight.intensity = currentIntensity;
+        }
     }
-    
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
         foreach (Transform lightSource in safeLightSources)
         {
             Gizmos.DrawWireSphere(lightSource.position, safeLightRadius);
-
-            //a
         }
     }
 }
