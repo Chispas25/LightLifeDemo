@@ -109,6 +109,9 @@ public class EyeEnemy2 : MonoBehaviour
             if (health != null)
             {
                 health.TakeDamage(damage);
+
+                if (!health.IsDead())
+                StartCoroutine(ReenablePlayer(targetPlayer.gameObject, 1f));
             }
 
             // Desactivar movimiento e input temporalmente
