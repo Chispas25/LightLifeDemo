@@ -52,6 +52,7 @@ public class AcompañadoAislado : MonoBehaviour
             amAislado = false;
             //a
             //a
+            //a
     
         }
     }
