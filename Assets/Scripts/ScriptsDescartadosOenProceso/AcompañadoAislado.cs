@@ -49,7 +49,11 @@ public class AcompañadoAislado : MonoBehaviour
         else
         {
 
-            amAislado=false;
+            amAislado = false;
+            //a
+            //a
+            //a
+    
         }
     }
 }

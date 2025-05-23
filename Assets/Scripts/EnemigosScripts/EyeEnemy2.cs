@@ -109,6 +109,9 @@ public class EyeEnemy2 : MonoBehaviour
             if (health != null)
             {
                 health.TakeDamage(damage);
+
+                if (!health.IsDead())
+                StartCoroutine(ReenablePlayer(targetPlayer.gameObject, 1f));
             }
 
             // Desactivar movimiento e input temporalmente
@@ -129,13 +132,17 @@ public class EyeEnemy2 : MonoBehaviour
         }
     }
 
-    bool LookForPlayer(out Transform detectedPlayer)
+    bool LookForPlayer(out Transform detectedPlayer) 
     {
         Collider2D hit = Physics2D.OverlapCircle(rb.position, detectionDistance, playerLayer);
         if (hit != null)
         {
-            detectedPlayer = hit.transform;
-            return true;
+            PlayerHealthManager health = hit.GetComponent<PlayerHealthManager>();
+            if (health != null && !health.IsDead())
+            {
+                detectedPlayer = hit.transform;
+                return true;
+            }
         }
 
         detectedPlayer = null;

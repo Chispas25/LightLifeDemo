@@ -99,7 +99,7 @@ public class BoneThrower2 : MonoBehaviour
         }
     }
 
-    public void Shoot()
+    public void Shoot() 
     {
         if (targetPlayer == null) return;
 
@@ -111,8 +111,17 @@ public class BoneThrower2 : MonoBehaviour
         GameObject bone = Instantiate(bonePrefab, firePoint.position, Quaternion.identity);
         bone.GetComponent<BoneProjectile>()?.SetDirection(directionToPlayer);
 
+        // 🔽 IGNORAR COLISIÓN ENTRE EL PROYECTIL Y EL ENEMIGO
+        Collider2D myCollider = GetComponent<Collider2D>();
+        Collider2D boneCollider = bone.GetComponent<Collider2D>();
+
+        if (myCollider != null && boneCollider != null)
+        {
+            Physics2D.IgnoreCollision(boneCollider, myCollider);
+        }
+
         Debug.Log("¡Lanzando hueso hacia el jugador!");
-    }
+}
 
     bool LookForPlayer(out Transform detectedPlayer)
     {

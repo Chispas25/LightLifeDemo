@@ -4260,6 +4260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abbebf474d790e24fbb448dd4d55d317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthUI: {fileID: 0}
   maxLives: 4
   reviveDuration: 6
   invulnerabilityDuration: 2
@@ -4739,6 +4740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abbebf474d790e24fbb448dd4d55d317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthUI: {fileID: 0}
   maxLives: 4
   reviveDuration: 6
   invulnerabilityDuration: 2
@@ -26979,6 +26981,10 @@ PrefabInstance:
     - target: {fileID: 2158530418111091530, guid: be1b93b5b7d3e8a48a9d3b197e72611c, type: 3}
       propertyPath: m_Name
       value: Enemigo Ojo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158530418111091530, guid: be1b93b5b7d3e8a48a9d3b197e72611c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5746128260125795206, guid: be1b93b5b7d3e8a48a9d3b197e72611c, type: 3}
       propertyPath: patrolPoints.Array.data[0]
