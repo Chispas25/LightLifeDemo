@@ -9,11 +9,12 @@ TagManager:
   - Player3
   - Player4
   - Patrulla
+  - Opciones
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Interactables
   - Water
   - UI
   - P1

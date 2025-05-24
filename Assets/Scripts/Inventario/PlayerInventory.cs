@@ -7,15 +7,21 @@ public class PlayerInventory : MonoBehaviour
     public InventoryItem[] items = new InventoryItem[3];
     private int currentIndex = 0;
 
+    public InventoryUI inventoryUI;
+
+    public int CurrentIndex => currentIndex;
+
     public bool AddItem(InventoryItem newItem)
     {
-        // Comprueba si hay espacio
         for (int i = 0; i < items.Length; i++)
         {
             if (items[i] == null)
             {
                 items[i] = newItem;
                 Debug.Log($"{gameObject.name} recogió: {newItem.itemName}");
+
+                inventoryUI?.UpdateInventoryUI(); // Actualiza la UI después de recoger
+
                 return true;
             }
         }
@@ -29,6 +35,7 @@ public class PlayerInventory : MonoBehaviour
         if (index >= 0 && index < items.Length)
         {
             items[index] = null;
+            inventoryUI?.UpdateInventoryUI(); // Refresca la UI al remover ítem
         }
     }
 
@@ -40,5 +47,26 @@ public class PlayerInventory : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void NextSlot()
+    {
+        currentIndex = (currentIndex + 1) % items.Length;
+        Debug.Log($"Slot activo de {gameObject.name}: {currentIndex + 1}");
+    }
+
+    public void UseCurrentItem()
+    {
+        InventoryItem item = GetItem(currentIndex);
+        if (item != null)
+        {
+            Debug.Log($"{gameObject.name} usa: {item.itemName}");
+            // Aquí aplicarías efectos concretos del ítem
+            RemoveItem(currentIndex);
+        }
+        else
+        {
+            Debug.Log($"{gameObject.name} no tiene ítem en el slot {currentIndex + 1}");
+        }
     }
 }
