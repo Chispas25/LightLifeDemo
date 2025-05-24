@@ -9,6 +9,7 @@ public class SegmentedLaser : MonoBehaviour
     public Transform puntoFinal;
 
     public float cambioColorDistancia;
+    public int count; 
 
     public Color colorAntes = Color.black;
     private Color colorDespues = Color.blue;
@@ -17,7 +18,19 @@ public class SegmentedLaser : MonoBehaviour
     private List<SpriteRenderer> objetosDentro = new List<SpriteRenderer>();
     private bool jugadorDentro = false;
 
+    //comprobar luz obj final
+    public bool luzObjFinal = false;
 
+
+    //color consola
+    private string ColorAHex(Color color)
+    {
+        Color32 c32 = color;
+        return $"#{c32.r:X2}{c32.g:X2}{c32.b:X2}";
+    }
+
+
+    
     void Start()
     {
 
@@ -50,6 +63,8 @@ public class SegmentedLaser : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Color actual del láser (hex): " + ColorAHex(colorDespues));
+
         // Actualizar estado si hay objetos dentro
         if (objetosDentro.Count > 0)
         {
@@ -62,9 +77,19 @@ public class SegmentedLaser : MonoBehaviour
         }
 
         ActualizarLinea(jugadorDentro);
+
+        //luz obj final (script luz2d)
+        if (jugadorDentro)
+        {
+            luzObjFinal = true;
+        }
+        else
+        {
+            luzObjFinal = false;
+        }
+        ;
         
     }
-//hola
 
     void ActualizarLinea(bool jugadorActivo)
     {
