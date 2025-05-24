@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Animation_Attack : MonoBehaviour
 {
-    //tes
+    //animacion
     private Animator attackAnimator;
     public bool Attack = false;
+
+    //rango
 
     //esperar
     public int framesToWait = 30;
