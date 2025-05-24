@@ -179,7 +179,7 @@ public class WashingMachinePuzzle : MonoBehaviour
             currentPlayer = null;
             interactAction = null;
 
-            if (promptUI != null)
+            if (promptUI != null)b
                 promptUI.SetActive(false);
         }
     }
