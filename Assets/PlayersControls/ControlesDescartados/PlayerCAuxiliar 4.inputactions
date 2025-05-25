@@ -1,5 +1,5 @@
 {
-    "name": "PlayerCAuxiliar 2",
+    "name": "PlayerCAuxiliar 4",
     "maps": [
         {
             "name": "Player",
@@ -45,6 +45,15 @@
                     "name": "Usar",
                     "type": "Button",
                     "id": "0e7e2662-9caf-45fc-9369-8f6c0cc7b6de",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Rodar",
+                    "type": "Button",
+                    "id": "6f1e46d8-2910-453d-b790-d1a02f407097",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -111,7 +120,7 @@
                     "name": "",
                     "id": "8a3929d8-8bdf-45d7-8556-1b0ce132e252",
                     "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
@@ -122,7 +131,7 @@
                     "name": "",
                     "id": "8e1d08b2-091f-4b1b-af12-02674716df09",
                     "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Invent",
@@ -144,10 +153,21 @@
                     "name": "",
                     "id": "7e86f614-2c1e-4e88-936b-42d943d2cbc2",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Usar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "272fdd25-91d6-4339-8163-b63697336666",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rodar",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

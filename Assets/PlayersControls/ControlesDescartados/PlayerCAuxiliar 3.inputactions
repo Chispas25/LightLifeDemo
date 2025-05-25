@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Rodar",
+                    "type": "Button",
+                    "id": "3de331f7-4f54-40c9-8204-5ee1cd37cac5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -110,7 +119,7 @@
                 {
                     "name": "",
                     "id": "8a3929d8-8bdf-45d7-8556-1b0ce132e252",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -121,7 +130,7 @@
                 {
                     "name": "",
                     "id": "8e1d08b2-091f-4b1b-af12-02674716df09",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -132,7 +141,7 @@
                 {
                     "name": "",
                     "id": "5c0aff03-8bfe-4a65-a40f-d741edd9775e",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -143,11 +152,22 @@
                 {
                     "name": "",
                     "id": "7e86f614-2c1e-4e88-936b-42d943d2cbc2",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Usar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6d2dc3ad-21d1-4cab-a6e9-62cd678f9047",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rodar",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
