@@ -4,31 +4,30 @@ public class ItemPickup : MonoBehaviour
 {
     public InventoryItem item;
 
-    private bool playerInRange = false;
     private PlayerInventory playerInventory;
+    private bool canPickup = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // Asegúrate de que los jugadores tienen la tag "Player"
+        playerInventory = other.GetComponent<PlayerInventory>();
+        if (playerInventory != null)
         {
-            playerInventory = other.GetComponent<PlayerInventory>();
-            if (playerInventory != null)
-                playerInRange = true;
+            canPickup = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && other.GetComponent<PlayerInventory>() == playerInventory)
+        if (other.GetComponent<PlayerInventory>() == playerInventory)
         {
-            playerInRange = false;
+            canPickup = false;
             playerInventory = null;
         }
     }
 
     public void TryPickup()
     {
-        if (playerInRange && playerInventory != null)
+        if (canPickup && playerInventory != null)
         {
             bool pickedUp = playerInventory.AddItem(item);
             if (pickedUp)
