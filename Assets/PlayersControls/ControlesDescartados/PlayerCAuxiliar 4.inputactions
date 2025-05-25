@@ -75,7 +75,7 @@
                 {
                     "name": "up",
                     "id": "73e3f789-f3de-4f80-874d-eef19f88ae48",
-                    "path": "<Keyboard>/numpad8",
+                    "path": "<Gamepad>/rightStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -86,7 +86,7 @@
                 {
                     "name": "down",
                     "id": "db2ca880-7192-495f-b2b7-70ada4095920",
-                    "path": "<Keyboard>/numpad5",
+                    "path": "<Gamepad>/rightStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -97,7 +97,7 @@
                 {
                     "name": "left",
                     "id": "d2c72091-a40e-42b5-b319-48e2f1cac1a7",
-                    "path": "<Keyboard>/numpad4",
+                    "path": "<Gamepad>/rightStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -108,7 +108,7 @@
                 {
                     "name": "right",
                     "id": "9e2554bc-842c-42f0-b735-30945f79ebff",
-                    "path": "<Keyboard>/numpad6",
+                    "path": "<Gamepad>/rightStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
