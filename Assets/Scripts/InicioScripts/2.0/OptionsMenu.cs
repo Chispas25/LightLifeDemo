@@ -14,7 +14,7 @@ public class OptionsMenu : MonoBehaviour
     public TMP_Dropdown dropdownQuality;
     public int quality;
 
-    //public Toggle toggle;
+    
     public TMP_Dropdown resolutionDropDown;
     Resolution[] resolutions;//Creamos un array para contener las resoluciones
 
@@ -28,23 +28,18 @@ public class OptionsMenu : MonoBehaviour
 
     void Start()
     {
+
         sliderBright.value = PlayerPrefs.GetFloat("bright", 0.5f); //Iniciamos la primera vez con unos valores predeterminados,
                                                                    //luego utilizaremos la preferencia
 
         bright.color = new Color(bright.color.r, bright.color.g, bright.color.b, sliderBright.value); //cambia la transparencia (4 valor) segun la barra
 
+        float brightness = PlayerPrefs.GetFloat("bright", 0.5f);
+        bright.color = new Color(bright.color.r, bright.color.g, bright.color.b, brightness);
+
         sliderVolume.value = PlayerPrefs.GetFloat("volumeAudio", 0.5f);
         AudioListener.volume = sliderVolume.value;
 
-        //Comprobamos si la casilla est� marcada o no para activar la pantalla completa
-        /* if (Screen.fullScreen)
-         {
-             toggle.isOn = true;
-         }
-         else
-         {
-             toggle.isOn = false;
-         } */
 
 
         quality = PlayerPrefs.GetInt("numeroDeCalidad", 3);

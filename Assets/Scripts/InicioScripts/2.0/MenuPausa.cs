@@ -1,22 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+
 
 public class GameController : MonoBehaviour
 {
-    [Header ("Game Over")]
-    public GameObject gameOverScreen;
-    
+
 
     [Header("Pause")]
     public GameObject pauseScreen;
+
     void Start()
     {
-        //PlayerHealth.OnPlayerDied += GameOverScreen;
-        gameOverScreen.SetActive(false);
+
         pauseScreen.SetActive(false);
+
+
+
     }
 
-    
+
     private void Update()
     {
         //Pause
@@ -31,22 +37,23 @@ public class GameController : MonoBehaviour
             {
                 PauseGame(true);
             }
-            
+
         }
     }
+
 
     #region GameOverScreen
     void GameOverScreen()
     {
-        gameOverScreen.SetActive(true);
-        
+        //gameOverScreen.SetActive(true);
+
     }
     #endregion
 
     #region Reestart and loading scenes
     public void ResetGame()
     {
-        gameOverScreen.SetActive(false);
+        //gameOverScreen.SetActive(false);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
 
     }
@@ -55,12 +62,12 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    
+
     public void LoadMainMenu()
     {
         SceneManager.LoadSceneAsync(0);
     }
-    
+
     void OnDestroy()
     {
         //PlayerHealth.OnPlayerDied -= GameOverScreen;
@@ -82,5 +89,8 @@ public class GameController : MonoBehaviour
             Time.timeScale = 1;
     }
 
-    #endregion 
+    #endregion
+
+
+
 }
