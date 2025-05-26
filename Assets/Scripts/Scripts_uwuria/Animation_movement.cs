@@ -8,10 +8,16 @@ public class Animation_movement : MonoBehaviour
     private Vector2 moveInput;  // Entrada del jugador
     private Animator playerAnimator;  // Referencia al Animator
 
+//audio
+    //public AudioClip fxhitMovement;
+    //private AudioSource _audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
         playerAnimator = GetComponent<Animator>();  // Obtener el Animator del GameObject
+        //_audioManager = this.GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -20,6 +26,7 @@ public class Animation_movement : MonoBehaviour
         // Obtener la entrada del jugador (horizontal y vertical)
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
+
 
         // Pasar las direcciones de movimiento al Animator
         playerAnimator.SetFloat("Horizontal", moveX);
