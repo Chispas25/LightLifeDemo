@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -62,6 +62,97 @@ public class PlayerInventory : MonoBehaviour
         {
             Debug.Log($"{gameObject.name} usa: {item.itemName}");
             // Aquí aplicarías efectos concretos del ítem
+            RemoveItem(currentIndex);
+        }
+        else
+        {
+            Debug.Log($"{gameObject.name} no tiene ítem en el slot {currentIndex + 1}");
+        }
+    }
+}*/
+
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PlayerInventory : MonoBehaviour
+{
+    public InventoryItem[] items = new InventoryItem[3];
+    private int currentIndex = 0;
+
+    public InventoryUI inventoryUI;       // UI opcional para mostrar el inventario
+    public PlayerInput playerInput;       // Se asigna automáticamente
+
+    public int CurrentIndex => currentIndex;
+
+    private void Start()
+    {
+        playerInput = GetComponent<PlayerInput>();
+
+        // Asegura que cada jugador tenga su propia copia del mapa de acciones
+        if (playerInput != null && playerInput.actions != null)
+        {
+            playerInput.actions = Instantiate(playerInput.actions);
+        }
+    }
+
+    // Agrega un ítem al inventario
+    public bool AddItem(InventoryItem newItem)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] == null)
+            {
+                items[i] = newItem;
+                Debug.Log($"{gameObject.name} recogió: {newItem.itemName}");
+                inventoryUI?.UpdateInventoryUI();
+                return true;
+            }
+        }
+
+        Debug.Log($"{gameObject.name} no tiene espacio en el inventario.");
+        return false;
+    }
+
+    // Remueve un ítem por índice
+    public void RemoveItem(int index)
+    {
+        if (index >= 0 && index < items.Length)
+        {
+            items[index] = null;
+            inventoryUI?.UpdateInventoryUI();
+        }
+    }
+
+    // Obtiene un ítem por índice
+    public InventoryItem GetItem(int index)
+    {
+        if (index >= 0 && index < items.Length)
+        {
+            return items[index];
+        }
+
+        return null;
+    }
+
+    // Cambia al siguiente slot del inventario
+    public void NextSlot()
+    {
+        currentIndex = (currentIndex + 1) % items.Length;
+        Debug.Log($"Slot activo de {gameObject.name}: {currentIndex + 1}");
+       
+    }
+
+    // Usa el ítem actualmente seleccionado
+    public void UseCurrentItem()
+    {
+        InventoryItem item = GetItem(currentIndex);
+        if (item != null)
+        {
+            Debug.Log($"{gameObject.name} usa: {item.itemName}");
+            item.Use(gameObject); // Llama al método Use del ítem
             RemoveItem(currentIndex);
         }
         else

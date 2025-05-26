@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,7 @@ public class ControladorOpciones1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        panelOpciones = GameObject.FindGameObjectWithTag("opciones").GetComponent<Controladoropciones>();
+       panelOpciones = GameObject.FindGameObjectWithTag("opciones").GetComponent<Controladoropciones>();
 
     }
 
@@ -33,4 +34,4 @@ public class ControladorOpciones1 : MonoBehaviour
     }
 
 
-}
+} */
