@@ -49,12 +49,21 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "RodarInvent",
+                    "type": "Button",
+                    "id": "61090582-9996-40c8-b0ce-25d65a6906bd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "Keys",
-                    "id": "44eecacc-6a13-433a-857a-67502770706e",
+                    "name": "WASD",
+                    "id": "d6116795-6b9f-46d4-abcb-b9bb03f3566b",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -65,7 +74,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "08fee7e3-c115-4a64-911e-87938125f7eb",
+                    "id": "73e3f789-f3de-4f80-874d-eef19f88ae48",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
@@ -76,7 +85,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "cfbb4fb6-df6a-4800-8b27-70229ddda303",
+                    "id": "db2ca880-7192-495f-b2b7-70ada4095920",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
@@ -87,7 +96,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "6f5d28c8-3515-4b0b-88a6-34be5874db10",
+                    "id": "d2c72091-a40e-42b5-b319-48e2f1cac1a7",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
@@ -98,7 +107,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "c2d793ba-6868-4962-9e7e-03ffc4cccd2d",
+                    "id": "9e2554bc-842c-42f0-b735-30945f79ebff",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
@@ -109,8 +118,8 @@
                 },
                 {
                     "name": "",
-                    "id": "324a07fc-4790-42ae-b881-4fcc75739bab",
-                    "path": "<Keyboard>/numpad3",
+                    "id": "8a3929d8-8bdf-45d7-8556-1b0ce132e252",
+                    "path": "<Keyboard>/numpad1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -120,7 +129,7 @@
                 },
                 {
                     "name": "",
-                    "id": "10b1695a-8ac8-4933-9c94-05aaefc897e0",
+                    "id": "8e1d08b2-091f-4b1b-af12-02674716df09",
                     "path": "<Keyboard>/numpad2",
                     "interactions": "",
                     "processors": "",
@@ -131,8 +140,8 @@
                 },
                 {
                     "name": "",
-                    "id": "6a1d49ef-c26c-452c-b7ef-5b70d63e01a2",
-                    "path": "<Keyboard>/numpad1",
+                    "id": "5c0aff03-8bfe-4a65-a40f-d741edd9775e",
+                    "path": "<Keyboard>/numpad0",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -142,12 +151,23 @@
                 },
                 {
                     "name": "",
-                    "id": "2b6b1c5b-58f6-4b1e-82ca-804b4eac2f78",
-                    "path": "<Keyboard>/numpad0",
+                    "id": "7e86f614-2c1e-4e88-936b-42d943d2cbc2",
+                    "path": "<Keyboard>/numpadPeriod",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Usar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90235a16-682a-43c6-acdb-1b69e691c998",
+                    "path": "<Keyboard>/numpad3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RodarInvent",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

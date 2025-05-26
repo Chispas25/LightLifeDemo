@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public Vector2 LastMoveDirection { get; private set; } = Vector2.right;
+    public Vector2 LastMoveDirection { get; private set; } = Vector2.down;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -19,6 +19,10 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        if (moveInput != Vector2.zero)
+        {
+            LastMoveDirection = moveInput.normalized;
+        }
 
         
     }

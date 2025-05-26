@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class AtkDef : MonoBehaviour
 {
@@ -17,15 +18,9 @@ public class AtkDef : MonoBehaviour
     private PlayerMovement movementScript;
 
     private Vector2 moveInput = Vector2.zero;
-    public Vector2 LastMoveDirection { get; private set; } = Vector2.right;
+    public Vector2 LastMoveDirection { get; private set; } = Vector2.down;
 
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        moveInput = context.ReadValue<Vector2>();
-
-        if (moveInput != Vector2.zero)
-            LastMoveDirection = moveInput.normalized;
-    }
+    
 
     private void Start()
     {
@@ -66,22 +61,34 @@ public class AtkDef : MonoBehaviour
     private void PerformAttack()
     {
         Vector2 attackDir = movementScript.LastMoveDirection;
-        Vector2 attackOrigin = (Vector2)transform.position + attackDir * attackRange * 0.5f;
+        Vector2 attackOrigin = (Vector2)transform.position + attackDir * attackRange;
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(attackOrigin, attackRange * 0.5f, enemyLayer);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackOrigin, attackRange, enemyLayer);
+
+        HashSet<EnemyHealth> damaged = new HashSet<EnemyHealth>();
 
         foreach (Collider2D enemy in hits)
         {
-            if (enemy.TryGetComponent<EnemyHealth>(out var enemyHealth))
+            if (enemy.TryGetComponent<EnemyHealth>(out var enemyHealth) && !damaged.Contains(enemyHealth))
             {
-                enemyHealth.TakeDamage(attackDamage);
+                // Ángulo entre dirección del ataque y dirección hacia el enemigo
+                Vector2 dirToEnemy = (enemy.transform.position - transform.position).normalized;
+                float angle = Vector2.Angle(attackDir, dirToEnemy);
 
-                // Opcional: aplicar retroceso
-                Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
-                if (rb != null)
+                if (angle < 90f) // solo enemigos en el "arco frontal"
                 {
-                    Vector2 knockbackDir = (enemy.transform.position - transform.position).normalized;
-                    rb.AddForce(knockbackDir * 100f); // Ajusta fuerza
+                    damaged.Add(enemyHealth);
+                    Debug.Log($"Golpeando a {enemy.name}");
+
+                    enemyHealth.TakeDamage(attackDamage);
+
+                    // Retroceso opcional
+                    Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+                    if (rb != null)
+                    {
+                        Vector2 knockbackDir = (enemy.transform.position - transform.position).normalized;
+                        rb.AddForce(knockbackDir);
+                    }
                 }
             }
         }
@@ -89,12 +96,35 @@ public class AtkDef : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if (movementScript == null) return;
+        Vector2 dir;
 
-        Vector2 dir = movementScript.LastMoveDirection;
-        Vector2 pos = (Vector2)transform.position + dir * attackRange * 0.5f;
+        // Usa la dirección del movimiento si está disponible en juego
+        if (Application.isPlaying && movementScript != null)
+        {
+            dir = movementScript.LastMoveDirection;
+        }
+        else
+        {
+            dir = Vector2.down; // Dirección por defecto en editor
+        }
+
+        float angleSpan = 180f;
+        int segments = 20;
+        float radius = attackRange;
+
+        Vector2 origin = (Vector2)transform.position; // 👈 El arco parte del centro
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(pos, attackRange * 0.5f);
+
+        for (int i = 0; i <= segments; i++)
+        {
+            float angle = -angleSpan / 2f + (angleSpan / segments) * i;
+            Vector2 rotatedDir = Quaternion.Euler(0, 0, angle) * dir.normalized;
+            Vector2 endPoint = origin + rotatedDir * radius;
+            Gizmos.DrawLine(origin, endPoint);
+        }
+
+        Gizmos.color = new Color(1, 0, 0, 0.2f);
+        Gizmos.DrawWireSphere(origin, radius);
     }
 }
