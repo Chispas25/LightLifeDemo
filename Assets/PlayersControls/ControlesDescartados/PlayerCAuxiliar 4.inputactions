@@ -1,5 +1,5 @@
 {
-    "name": "PlayerCAuxiliar 3",
+    "name": "PlayerCAuxiliar 4",
     "maps": [
         {
             "name": "Player",
@@ -53,7 +53,7 @@
                 {
                     "name": "Rodar",
                     "type": "Button",
-                    "id": "3de331f7-4f54-40c9-8204-5ee1cd37cac5",
+                    "id": "6f1e46d8-2910-453d-b790-d1a02f407097",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -75,7 +75,7 @@
                 {
                     "name": "up",
                     "id": "73e3f789-f3de-4f80-874d-eef19f88ae48",
-                    "path": "<Gamepad>/leftStick/up",
+                    "path": "<Gamepad>/rightStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -86,7 +86,7 @@
                 {
                     "name": "down",
                     "id": "db2ca880-7192-495f-b2b7-70ada4095920",
-                    "path": "<Gamepad>/leftStick/down",
+                    "path": "<Gamepad>/rightStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -97,7 +97,7 @@
                 {
                     "name": "left",
                     "id": "d2c72091-a40e-42b5-b319-48e2f1cac1a7",
-                    "path": "<Gamepad>/leftStick/left",
+                    "path": "<Gamepad>/rightStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -108,7 +108,7 @@
                 {
                     "name": "right",
                     "id": "9e2554bc-842c-42f0-b735-30945f79ebff",
-                    "path": "<Gamepad>/leftStick/right",
+                    "path": "<Gamepad>/rightStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -119,8 +119,8 @@
                 {
                     "name": "",
                     "id": "8a3929d8-8bdf-45d7-8556-1b0ce132e252",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
@@ -130,8 +130,8 @@
                 {
                     "name": "",
                     "id": "8e1d08b2-091f-4b1b-af12-02674716df09",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Invent",
@@ -141,7 +141,7 @@
                 {
                     "name": "",
                     "id": "5c0aff03-8bfe-4a65-a40f-d741edd9775e",
-                    "path": "<Gamepad>/dpad/left",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -152,8 +152,8 @@
                 {
                     "name": "",
                     "id": "7e86f614-2c1e-4e88-936b-42d943d2cbc2",
-                    "path": "<Gamepad>/dpad/up",
-                    "interactions": "",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Usar",
@@ -162,9 +162,9 @@
                 },
                 {
                     "name": "",
-                    "id": "6d2dc3ad-21d1-4cab-a6e9-62cd678f9047",
-                    "path": "<Gamepad>/leftStickPress",
-                    "interactions": "",
+                    "id": "272fdd25-91d6-4339-8163-b63697336666",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Rodar",
