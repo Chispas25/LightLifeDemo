@@ -8,6 +8,10 @@ public class Animation_Attack : MonoBehaviour
     private Animator attackAnimator;
     public bool Attack = false;
 
+    //audio
+    public AudioClip fxhitSarten;
+    private AudioSource _audioManager;
+
     //rango
 
     //esperar
@@ -20,6 +24,7 @@ public class Animation_Attack : MonoBehaviour
     void Start()
     {
         attackAnimator = GetComponent<Animator>();
+        _audioManager = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,12 +34,12 @@ public class Animation_Attack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             attackAnimator.SetBool("Attack", true);
-
+            _audioManager.PlayOneShot(fxhitSarten);
         }
         else
         {
 
-           // currentFrame++;
+            // currentFrame++;
 
             if (currentFrame > framesToWait)
             {

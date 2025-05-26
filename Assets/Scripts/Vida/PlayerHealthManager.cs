@@ -20,7 +20,7 @@ public class PlayerHealthManager : MonoBehaviour
     public Light2D playerLight; // Asigna desde el Inspector si tienes una luz personalizada
 
     private int currentLives;
-    private bool isDead = false;
+    public bool isDead = false;
 
     // Componentes a desactivar automáticamente
     private PlayerMovement movementScript;
