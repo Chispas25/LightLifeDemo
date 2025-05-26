@@ -5,9 +5,6 @@ using UnityEngine;
 public class ScenesLogic : MonoBehaviour
 {
 
-
-
-
     
     private void Awake()
     {
@@ -17,6 +14,7 @@ public class ScenesLogic : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        
         DontDestroyOnLoad(gameObject);
     }
 
