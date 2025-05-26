@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class StairTeleportBidirectional : MonoBehaviour
 {
-    public StairTeleportBidirectional otherStair; // La otra escalera
+    public StairTeleportBidirectional otherStair; 
 
     private HashSet<GameObject> playersNearby = new HashSet<GameObject>();
     private Dictionary<GameObject, float> playerCooldowns = new Dictionary<GameObject, float>();
@@ -18,7 +18,7 @@ public class StairTeleportBidirectional : MonoBehaviour
         {
             GameObject player = other.gameObject;
 
-            // Si está en cooldown, no teletransportar
+            
             if (playerCooldowns.ContainsKey(player) && Time.time < playerCooldowns[player])
                 return;
 
@@ -45,7 +45,7 @@ public class StairTeleportBidirectional : MonoBehaviour
         {
             player.transform.position = otherStair.transform.position;
 
-            // Iniciar cooldown en ambas escaleras
+         
             playerCooldowns[player] = Time.time + teleportCooldown;
             otherStair.playerCooldowns[player] = Time.time + teleportCooldown;
         }
