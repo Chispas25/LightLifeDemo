@@ -36,4 +36,18 @@ public class ItemPickup : MonoBehaviour
             }
         }
     }
+
+    // NUEVO: permite pickup desde fuera (como después del diálogo)
+    public void TryPickupFromOutside(GameObject interactor)
+    {
+        var inventory = interactor.GetComponent<PlayerInventory>();
+        if (inventory != null)
+        {
+            bool pickedUp = inventory.AddItem(item);
+            if (pickedUp)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 }
