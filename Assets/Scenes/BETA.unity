@@ -5326,6 +5326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e0dc97611fc50419bacd84529a795f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionPopupImage: {fileID: 0}
 --- !u!114 &344678693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5343,6 +5344,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   inventoryUI: {fileID: 13730007}
+  playerInput: {fileID: 0}
 --- !u!114 &344678694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9398,7 +9400,7 @@ Transform:
   m_GameObject: {fileID: 904752606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5500002, y: -40.54, z: 0}
+  m_LocalPosition: {x: 3.5500002, y: -42.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9505,6 +9507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e0dc97611fc50419bacd84529a795f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionPopupImage: {fileID: 0}
 --- !u!114 &904752622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9522,6 +9525,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   inventoryUI: {fileID: 742458688}
+  playerInput: {fileID: 0}
 --- !u!114 &904752623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11128,7 +11132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 343833336823237787, guid: 2ce623c4a40967b4b818fdb0ba5bf035, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 1.1300011
       objectReference: {fileID: 0}
     - target: {fileID: 1333190319692457135, guid: 2ce623c4a40967b4b818fdb0ba5bf035, type: 3}
       propertyPath: orthographic size
@@ -11140,7 +11144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1609350236048129100, guid: 2ce623c4a40967b4b818fdb0ba5bf035, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 1.1300011
       objectReference: {fileID: 0}
     - target: {fileID: 1899963270443490885, guid: 2ce623c4a40967b4b818fdb0ba5bf035, type: 3}
       propertyPath: orthographic size
@@ -11260,11 +11264,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7413193813929738290, guid: 2ce623c4a40967b4b818fdb0ba5bf035, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 1.1500015
       objectReference: {fileID: 0}
     - target: {fileID: 7434260502691473847, guid: 2ce623c4a40967b4b818fdb0ba5bf035, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 1.1500015
       objectReference: {fileID: 0}
     - target: {fileID: 8479098038952180403, guid: 2ce623c4a40967b4b818fdb0ba5bf035, type: 3}
       propertyPath: m_Enabled
@@ -28489,7 +28493,7 @@ Transform:
   m_GameObject: {fileID: 1598247316}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.55, y: -40.54, z: 0}
+  m_LocalPosition: {x: 9.55, y: -42.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28596,6 +28600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e0dc97611fc50419bacd84529a795f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionPopupImage: {fileID: 0}
 --- !u!114 &1598247330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28613,6 +28618,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   inventoryUI: {fileID: 981401916}
+  playerInput: {fileID: 0}
 --- !u!114 &1598247331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30674,6 +30680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e0dc97611fc50419bacd84529a795f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionPopupImage: {fileID: 0}
 --- !u!114 &1781034470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30691,6 +30698,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   inventoryUI: {fileID: 1368867757}
+  playerInput: {fileID: 0}
 --- !u!114 &1781034471
 MonoBehaviour:
   m_ObjectHideFlags: 0
