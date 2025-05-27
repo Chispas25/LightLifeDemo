@@ -4,61 +4,53 @@ using UnityEngine;
 
 public class Generador : MonoBehaviour
 {
-public float energia = 0f;
-    public float cargaVelocidad = 10f;
+    public float energia = 0f;
+    public float cargaVelocidad = 10f; // Velocidad base por jugador
     public bool cargaActiva = true;
-    private bool jugadorPresente = false;
+    private int jugadoresPresentes = 0;  // Contador de jugadores dentro de la zona
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (!cargaActiva && energia >= 100f)
-        return;
+            return;
 
-        
-        if (cargaActiva && jugadorPresente)
+        if (cargaActiva && jugadoresPresentes > 0)
         {
-            energia += cargaVelocidad * Time.deltaTime;
+            energia += cargaVelocidad * jugadoresPresentes * Time.deltaTime;
             energia = Mathf.Clamp(energia, 0f, 100f);
 
             if (energia >= 100f)
             {
-                cargaActiva = false; // ¡Ya está cargado completamente!
-                energia = 100f;      // Por si se pasó levemente
+                cargaActiva = false;
+                energia = 100f;
 
-
-                // Trigger evento completado
+                // Aquí puedes lanzar evento o llamar función que avise que la carga se completó
             }
         }
-        else if (!jugadorPresente && energia > 0)
+        else if (jugadoresPresentes == 0 && energia > 0)
         {
-            energia -= cargaVelocidad * Time.deltaTime;
+            energia -= cargaVelocidad * Time.deltaTime; // descarga solo a velocidad base
             energia = Mathf.Clamp(energia, 0f, 100f);
         }
-                    
 
-                    
-
-
-                Debug.Log("Energía: " + energia);
-
+        Debug.Log("Energía: " + energia + " | Jugadores presentes: " + jugadoresPresentes);
     }
-    
+
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player 1")) jugadorPresente = true;
-
+        if (col.tag.StartsWith("Player"))
+        {
+            jugadoresPresentes++;
+            Debug.Log("Jugador entró. Jugadores presentes: " + jugadoresPresentes);
+        }
     }
 
-      void OnTriggerExit2D(Collider2D col)
+    void OnTriggerExit2D(Collider2D col)
     {
-        if (col.CompareTag("Player 1")) jugadorPresente = false;
-    } 
+        if (col.tag.StartsWith("Player"))
+        {
+            jugadoresPresentes = Mathf.Max(0, jugadoresPresentes - 1);
+            Debug.Log("Jugador salió. Jugadores presentes: " + jugadoresPresentes);
+        }
+    }
 }
