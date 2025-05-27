@@ -20915,6 +20915,7 @@ GameObject:
   - component: {fileID: 696122587}
   - component: {fileID: 696122588}
   - component: {fileID: 696122589}
+  - component: {fileID: 696122590}
   m_Layer: 0
   m_Name: Plataforma (2)
   m_TagString: Untagged
@@ -21004,6 +21005,51 @@ MonoBehaviour:
   energia: 0
   cargaVelocidad: 10
   cargaActiva: 1
+--- !u!61 &696122590
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696122586}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.52161074, y: 0.53294986}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9567785, y: 0.9341003}
+  m_EdgeRadius: 0
 --- !u!1 &715489898
 GameObject:
   m_ObjectHideFlags: 0
@@ -22214,6 +22260,8 @@ GameObject:
   m_Component:
   - component: {fileID: 838897008}
   - component: {fileID: 838897009}
+  - component: {fileID: 838897011}
+  - component: {fileID: 838897010}
   m_Layer: 0
   m_Name: Plataforma
   m_TagString: Untagged
@@ -22288,6 +22336,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &838897010
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838897007}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9681158, y: 0.8660637, z: 0.2}
+  m_Center: {x: 0.5159421, y: 0.56696814, z: 0}
+--- !u!114 &838897011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838897007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae152c488e5eda459703ee8a281e839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energia: 0
+  cargaVelocidad: 10
+  cargaActiva: 1
 --- !u!1 &840341830
 GameObject:
   m_ObjectHideFlags: 0
@@ -41105,6 +41189,7 @@ GameObject:
   - component: {fileID: 1842785255}
   - component: {fileID: 1842785256}
   - component: {fileID: 1842785257}
+  - component: {fileID: 1842785258}
   m_Layer: 0
   m_Name: Plataforma (1)
   m_TagString: Untagged
@@ -41194,6 +41279,51 @@ MonoBehaviour:
   energia: 0
   cargaVelocidad: 10
   cargaActiva: 1
+--- !u!61 &1842785258
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842785254}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.49893188, y: 0.52728033}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0021362, y: 0.94543934}
+  m_EdgeRadius: 0
 --- !u!1 &1859378635
 GameObject:
   m_ObjectHideFlags: 0
@@ -60930,6 +61060,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2041803797}
   - component: {fileID: 2041803798}
+  - component: {fileID: 2041803800}
+  - component: {fileID: 2041803799}
   m_Layer: 0
   m_Name: Plataforma (3)
   m_TagString: Untagged
@@ -61004,6 +61136,66 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &2041803799
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041803796}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.48759365, y: 0.6463438}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0248127, y: 0.9114213}
+  m_EdgeRadius: 0
+--- !u!114 &2041803800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041803796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae152c488e5eda459703ee8a281e839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energia: 0
+  cargaVelocidad: 10
+  cargaActiva: 1
 --- !u!1 &2046910572
 GameObject:
   m_ObjectHideFlags: 0
