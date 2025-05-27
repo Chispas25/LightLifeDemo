@@ -36,7 +36,7 @@ public class AutoDoor : MonoBehaviour
         }
     }
 
-    private void UpdateDoorState()
+    private void UpdateDoorState()zfghdghj
     {
         bool shouldOpen = playersNearby.Count > 0;
         anim.SetBool("IsOpen", shouldOpen);
