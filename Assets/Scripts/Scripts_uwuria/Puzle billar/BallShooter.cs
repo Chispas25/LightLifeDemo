@@ -14,10 +14,10 @@ public class BallShooter : MonoBehaviour
     }
 
     void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            startDrag = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        /*if (Input.GetMouseButtonDown(0)) {
+           // startDrag = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             isDragging = true;
-        }
+        }*/
 
         if (Input.GetMouseButtonUp(0) && isDragging) {
             endDrag = Camera.main.ScreenToWorldPoint(Input.mousePosition);
