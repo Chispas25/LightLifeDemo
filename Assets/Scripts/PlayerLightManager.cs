@@ -1,4 +1,4 @@
- using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -122,6 +122,18 @@ public class PlayerLightManager : MonoBehaviour
         foreach (Transform lightSource in safeLightSources)
         {
             Gizmos.DrawWireSphere(lightSource.position, safeLightRadius);
+        }
+    }
+    public static void RegisterSafeLight(Transform newSafeLight)
+    {
+        if (allPlayers == null) return;
+
+        foreach (var player in allPlayers)
+        {
+            if (!player.safeLightSources.Contains(newSafeLight))
+            {
+                player.safeLightSources.Add(newSafeLight);
+            }
         }
     }
 }

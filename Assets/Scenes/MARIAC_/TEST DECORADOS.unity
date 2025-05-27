@@ -1245,6 +1245,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0e7e2662-9caf-45fc-9369-8f6c0cc7b6de
     m_ActionName: Player/Usar[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6f1e46d8-2910-453d-b790-d1a02f407097
+    m_ActionName: Player/Rodar
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -29952,7 +29956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: e92afd31b2b31194e87985266f500e53, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 26d238894d889f64b86a73c73f25c186, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -30021,6 +30025,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0e7e2662-9caf-45fc-9369-8f6c0cc7b6de
     m_ActionName: Player/Usar[/Keyboard/numpad0]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 61090582-9996-40c8-b0ce-25d65a6906bd
+    m_ActionName: Player/RodarInvent[/Keyboard/numpad3]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -31953,6 +31961,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0e7e2662-9caf-45fc-9369-8f6c0cc7b6de
     m_ActionName: Player/Usar
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3de331f7-4f54-40c9-8204-5ee1cd37cac5
+    m_ActionName: Player/Rodar
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
