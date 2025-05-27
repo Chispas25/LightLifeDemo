@@ -20928,6 +20928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 696122587}
   - component: {fileID: 696122588}
+  - component: {fileID: 696122589}
   m_Layer: 0
   m_Name: Plataforma (2)
   m_TagString: Untagged
@@ -21002,6 +21003,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &696122589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696122586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae152c488e5eda459703ee8a281e839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energia: 0
+  cargaVelocidad: 10
+  cargaActiva: 1
 --- !u!1 &715489898
 GameObject:
   m_ObjectHideFlags: 0
@@ -41337,6 +41353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1842785255}
   - component: {fileID: 1842785256}
+  - component: {fileID: 1842785257}
   m_Layer: 0
   m_Name: Plataforma (1)
   m_TagString: Untagged
@@ -41411,6 +41428,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1842785257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842785254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae152c488e5eda459703ee8a281e839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energia: 0
+  cargaVelocidad: 10
+  cargaActiva: 1
 --- !u!1 &1859378635
 GameObject:
   m_ObjectHideFlags: 0

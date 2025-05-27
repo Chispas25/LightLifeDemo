@@ -53,7 +53,7 @@ public float energia = 0f;
     
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player 1")) jugadorPresente = true;
+        if (col.tag.StartsWith("Player")) jugadorPresente = true;
 
     }
 
