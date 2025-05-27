@@ -59,6 +59,6 @@ public float energia = 0f;
 
       void OnTriggerExit2D(Collider2D col)
     {
-        if (col.CompareTag("Player 1")) jugadorPresente = false;
+        if  (col.gameObject.name.StartsWith("Bola")) jugadorPresente = false;
     } 
 }
