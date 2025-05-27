@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1207204364182563139}
   - component: {fileID: 721357132021027288}
   - component: {fileID: 5501081495292465537}
-  - component: {fileID: 5425927423380167838}
+  - component: {fileID: 7481835123969760116}
   m_Layer: 0
   m_Name: Deteccion vela
   m_TagString: Untagged
@@ -194,7 +194,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!114 &5425927423380167838
+--- !u!114 &7481835123969760116
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,10 +203,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5362182148214344021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3f9b5a45143e304e9b95fca25d0fa2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 21783d1561fde3b4eb2d656d4965ffe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  luzVela: {fileID: 5501081495292465537}
+  luzVela: {fileID: 5640445433107056848}
   col: {fileID: 1207204364182563139}
 --- !u!1 &8756763597484270712
 GameObject:
@@ -221,7 +221,8 @@ GameObject:
   - component: {fileID: 4016154894699896739}
   - component: {fileID: 1581453273574950744}
   - component: {fileID: 5640445433107056848}
-  - component: {fileID: 3007558950201333254}
+  - component: {fileID: 3417441002385713872}
+  - component: {fileID: 5564318356239888525}
   m_Layer: 0
   m_Name: Vela
   m_TagString: Untagged
@@ -403,7 +404,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!114 &3007558950201333254
+--- !u!114 &3417441002385713872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -412,8 +413,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 8756763597484270712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3f9b5a45143e304e9b95fca25d0fa2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 21783d1561fde3b4eb2d656d4965ffe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   luzVela: {fileID: 5640445433107056848}
-  col: {fileID: 4016154894699896739}
+  col: {fileID: 1207204364182563139}
+--- !u!114 &5564318356239888525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756763597484270712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ee1f04ac953294ab044dc26fd49897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialLines: []
