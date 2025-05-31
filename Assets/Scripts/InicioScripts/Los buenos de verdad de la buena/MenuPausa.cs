@@ -12,11 +12,19 @@ public class GameController : MonoBehaviour
 
     [Header("Pause")]
     public GameObject pauseScreen;
+    public GameObject pauseBackground;
+
+    public GameObject pauseTitle;
+
 
     void Start()
     {
 
         pauseScreen.SetActive(false);
+        pauseBackground.SetActive(false);
+        pauseTitle.SetActive(false);
+
+
 
 
 
@@ -81,6 +89,10 @@ public class GameController : MonoBehaviour
     {
         //Si el status es true pausamos el juego
         pauseScreen.SetActive(status);
+        pauseBackground.SetActive(status);
+        pauseTitle.SetActive(status);
+
+
 
         if (status)
             Time.timeScale = 0;
