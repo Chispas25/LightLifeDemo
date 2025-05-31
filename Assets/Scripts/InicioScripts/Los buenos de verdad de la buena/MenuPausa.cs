@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
 
     public GameObject pauseTitle;
 
+    public GameObject buttonExitgame;
+
 
     void Start()
     {
@@ -23,6 +25,11 @@ public class GameController : MonoBehaviour
         pauseScreen.SetActive(false);
         pauseBackground.SetActive(false);
         pauseTitle.SetActive(false);
+        buttonExitgame.SetActive(false);
+
+
+        Time.timeScale = 1;
+
 
 
 
@@ -91,6 +98,7 @@ public class GameController : MonoBehaviour
         pauseScreen.SetActive(status);
         pauseBackground.SetActive(status);
         pauseTitle.SetActive(status);
+        buttonExitgame.SetActive(status);
 
 
 
