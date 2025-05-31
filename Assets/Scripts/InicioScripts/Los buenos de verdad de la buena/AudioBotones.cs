@@ -20,7 +20,7 @@ public class ButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
     }
 
     _audioSource.loop = true;
-    _audioSource.volume = 0.1f;
+    _audioSource.volume = 1f;
     _audioSource.Play();
     }
 

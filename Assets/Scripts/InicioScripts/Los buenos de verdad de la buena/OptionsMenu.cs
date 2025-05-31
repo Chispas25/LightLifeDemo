@@ -24,6 +24,24 @@ public class OptionsMenu : MonoBehaviour
     public float sliderBrightValue;
     public float sliderVolumeValue;
 
+    public static OptionsMenu Instance;
+
+    private bool valuesLoaded = false;
+
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
 
     void Start()
@@ -46,10 +64,37 @@ public class OptionsMenu : MonoBehaviour
         dropdownQuality.value = quality;
         AdjustQuality();
 
+            if (!valuesLoaded)
+        {
+        LoadSettings();
+        valuesLoaded = true;
+        }
+
 
 
         CheckResolution();
     }
+
+    public void LoadSettings()
+    {
+    sliderBright.value = PlayerPrefs.GetFloat("bright", 0.5f);
+    bright.color = new Color(bright.color.r, bright.color.g, bright.color.b, sliderBright.value);
+
+    sliderVolume.value = PlayerPrefs.GetFloat("volumeAudio", 0.5f);
+    AudioListener.volume = sliderVolume.value;
+
+    quality = PlayerPrefs.GetInt("numeroDeCalidad", 3);
+    dropdownQuality.value = quality;
+    AdjustQuality();
+
+    CheckResolution();
+    }    
+
+
+
+
+
+
 
     public void ChangeVolumeSlider(float value)
     {
