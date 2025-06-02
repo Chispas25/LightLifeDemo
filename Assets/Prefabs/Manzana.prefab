@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33627ab8b74a39544942cada81db3242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 6a1477498fda35b4f9a85218a90660fb, type: 2}
+  item: {fileID: 11400000, guid: 575fb6e4770f2844b96cb14ccbb5ac33, type: 2}
 --- !u!114 &441173536620534733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
   - "Light: Esta muy oscuro, deber\xEDa haber algo m\xE1s que nos de luz"
   - Ligth:Tomad las sartenes, podremos defendernos con 1. Espacio 2. Numpad 0 3.
     Boton Izquierdo de la Cruz y 4. Boton B del gamepad
+  dialogueID: item_manzana_tutorial
 --- !u!58 &1484508663463222336
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -253,3 +254,4 @@ MonoBehaviour:
   - 'Esto es un item
 
 '
+  dialogueID: default_tutorial

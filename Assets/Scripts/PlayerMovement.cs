@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
+    //[SerializeField] private ParticleSystem particula;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = moveInput * moveSpeed;
+        //particula.Play();
 
         
     }

@@ -8,6 +8,7 @@ public class AnimationMovementKRP : MonoBehaviour
     private Vector2 moveInput;
     private Animator playerAnimator;
 
+
     private void Awake()
     {
         playerAnimator = GetComponent<Animator>();
@@ -22,5 +23,6 @@ public class AnimationMovementKRP : MonoBehaviour
         playerAnimator.SetFloat("Horizontal", moveInput.x);
         playerAnimator.SetFloat("Vertical", moveInput.y);
         playerAnimator.SetFloat("Speed", moveInput.magnitude);
+
     }
 }

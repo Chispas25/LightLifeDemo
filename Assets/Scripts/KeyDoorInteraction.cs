@@ -108,7 +108,7 @@ public class KeyDoorInteraction : MonoBehaviour
 }*/
 
 
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
@@ -230,4 +230,4 @@ public class KeyDoorInteraction : MonoBehaviour
             Debug.Log("Puerta abierta (sin animación)");
         }
     }
-}
+}*/
