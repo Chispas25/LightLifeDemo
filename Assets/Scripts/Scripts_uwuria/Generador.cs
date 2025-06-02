@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Generador : MonoBehaviour
 {
@@ -9,18 +10,12 @@ public class Generador : MonoBehaviour
     public static bool cargaActiva = true;
     public static int jugadoresPresentes = 0;
 
-    public Animator generador_anim; // Asigna este desde el Inspector en Unity
-
-    void Start()
-    {
-        // Solo si quieres obtenerlo desde el mismo GameObject
-         //generador_anim = GetComponent<Animator>();
-
-        // Si ya lo arrastras desde el Inspector, no hace falta hacer nada aquí
-    }
+    public Animator generador_anim;
+    public Image barraEnergia; // <-- Referencia al Slider de la UI
 
     void Update()
     {
+
         if (!cargaActiva && energia >= 100f)
             return;
 
@@ -28,7 +23,6 @@ public class Generador : MonoBehaviour
         {
             energia += cargaVelocidad * jugadoresPresentes * Time.deltaTime;
             energia = Mathf.Clamp(energia, 0f, 100f);
-            
 
             if (energia >= 100f)
             {
@@ -40,8 +34,10 @@ public class Generador : MonoBehaviour
         {
             energia -= cargaVelocidad * Time.deltaTime;
             energia = Mathf.Clamp(energia, 0f, 100f);
-
         }
+
+        if (barraEnergia != null)
+            barraEnergia.fillAmount = energia/100; 
 
         Debug.Log("Energía: " + energia + " | Jugadores presentes: " + jugadoresPresentes);
     }
@@ -53,7 +49,6 @@ public class Generador : MonoBehaviour
             jugadoresPresentes++;
             Debug.Log("Jugador entró. Jugadores presentes: " + jugadoresPresentes);
             generador_anim.SetBool("Activacion", true);
-
         }
     }
 
