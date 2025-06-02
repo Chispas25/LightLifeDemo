@@ -8,6 +8,8 @@ public class Animation_movement : MonoBehaviour
     private Vector2 moveInput;  // Entrada del jugador
     private Animator playerAnimator;  // Referencia al Animator
 
+    [SerializeField] private ParticleSystem particula;
+
 //audio
     //public AudioClip fxhitMovement;
     //private AudioSource _audioManager;
@@ -35,6 +37,9 @@ public class Animation_movement : MonoBehaviour
         // Actualizar la animación de velocidad utilizando la magnitud del vector de movimiento
         moveInput = new Vector2(moveX, moveY).normalized;  // Normalizar para evitar que el movimiento diagonal sea más rápido
         playerAnimator.SetFloat("Speed", moveInput.magnitude);  // Usamos .magnitude para determinar si el jugador está moviéndose o no
+
+        particula.Play();
+
     }
 }
 
