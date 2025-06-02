@@ -3,31 +3,36 @@ using UnityEngine;
 
 public class InteractableWithDialogue : MonoBehaviour, IInteractable
 {
+    [Header("Texto del tutorial (se muestra solo una vez por grupo)")]
     [TextArea]
     public List<string> tutorialLines;
 
-    private bool hasBeenInteracted = false;
+    [Header("ID único compartido entre objetos del mismo grupo")]
+    public string dialogueID = "default_tutorial"; // Ej: "puzzle_nevera", "item_manzana"
 
     public void Interact(GameObject interactor)
     {
-        if (!hasBeenInteracted)
+        if (!TutorialDialogueRegistry.HasBeenShown(dialogueID))
         {
-            hasBeenInteracted = true;
+            TutorialDialogueRegistry.MarkAsShown(dialogueID);
 
-            // Dispara el diálogo la primera vez
             DialogueManager.Instance.StartDialogue(tutorialLines, true, () =>
             {
-                // ✅ Al finalizar el diálogo, intenta recoger el ítem si tiene uno
-                ItemPickup pickup = GetComponent<ItemPickup>();
-                if (pickup != null)
-                {
-                    pickup.TryPickupFromOutside(interactor);
-                }
+                TryPickup(interactor);
             });
         }
         else
         {
-            Debug.Log("Ya interactuaste con esto.");
+            TryPickup(interactor); // Permitir recogida si ya se mostró el diálogo
+        }
+    }
+
+    private void TryPickup(GameObject interactor)
+    {
+        ItemPickup pickup = GetComponent<ItemPickup>();
+        if (pickup != null)
+        {
+            pickup.TryPickupFromOutside(interactor);
         }
     }
 }
