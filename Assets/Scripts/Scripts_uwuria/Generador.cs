@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Generador : MonoBehaviour
 {
-    public float energia = 0f;
-    public float cargaVelocidad = 10f; // Velocidad base por jugador
-    public bool cargaActiva = true;
-    private int jugadoresPresentes = 0;  // Contador de jugadores dentro de la zona
+    public static float energia = 0f;
+    public float cargaVelocidad = 1f;
+    public static bool cargaActiva = true;
+    public static int jugadoresPresentes = 0;
+
+    public Animator generador_anim;
+    public Image barraEnergia; // <-- Referencia al Slider de la UI
 
     void Update()
     {
+
         if (!cargaActiva && energia >= 100f)
             return;
 
@@ -23,15 +28,16 @@ public class Generador : MonoBehaviour
             {
                 cargaActiva = false;
                 energia = 100f;
-
-                // Aquí puedes lanzar evento o llamar función que avise que la carga se completó
             }
         }
         else if (jugadoresPresentes == 0 && energia > 0)
         {
-            energia -= cargaVelocidad * Time.deltaTime; // descarga solo a velocidad base
+            energia -= cargaVelocidad * Time.deltaTime;
             energia = Mathf.Clamp(energia, 0f, 100f);
         }
+
+        if (barraEnergia != null)
+            barraEnergia.fillAmount = energia/100; 
 
         Debug.Log("Energía: " + energia + " | Jugadores presentes: " + jugadoresPresentes);
     }
@@ -42,6 +48,7 @@ public class Generador : MonoBehaviour
         {
             jugadoresPresentes++;
             Debug.Log("Jugador entró. Jugadores presentes: " + jugadoresPresentes);
+            generador_anim.SetBool("Activacion", true);
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-
+//uwu
         public Transform laserOrigin;
         public LineRenderer lineRenderer;
         public float maxLaserDistance = 100f;

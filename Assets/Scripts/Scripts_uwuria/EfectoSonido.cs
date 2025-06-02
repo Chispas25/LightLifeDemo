@@ -18,6 +18,7 @@ public class EfectoSonido : MonoBehaviour
     public AudioClip fxHit;
     public AudioClip fxDeath;
     public AudioClip fxRecuperarVida;
+    public AudioClip fxSarten;
 
     //audios enemigos
     public AudioClip fxenemyAttack;
@@ -50,6 +51,7 @@ public class EfectoSonido : MonoBehaviour
             _audioManager.PlayOneShot(fxRecuperarVida);
             _audioManager.PlayOneShot(fxHit);
             _audioManager.PlayOneShot(fxDeath);
+            _audioManager.PlayOneShot(fxSarten);
 
             _audioManager.PlayOneShot(fxenemyAttack);
             _audioManager.PlayOneShot(fxdamagetoEnemy);
