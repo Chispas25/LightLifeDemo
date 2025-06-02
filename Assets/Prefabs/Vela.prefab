@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 721357132021027288}
   - component: {fileID: 5501081495292465537}
   - component: {fileID: 7481835123969760116}
+  - component: {fileID: 9068997479624612670}
   m_Layer: 0
   m_Name: Deteccion vela
   m_TagString: Untagged
@@ -208,6 +209,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   luzVela: {fileID: 5640445433107056848}
   col: {fileID: 1207204364182563139}
+--- !u!114 &9068997479624612670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5362182148214344021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ee1f04ac953294ab044dc26fd49897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialLines:
+  - "Light:Las velas nos dar\xE1n un poco de luz."
+  dialogueID: vela_general
 --- !u!1 &8756763597484270712
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,4 +446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ee1f04ac953294ab044dc26fd49897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialLines: []
+  tutorialLines:
+  - "Light:Las velas nos dar\xE1n un poco de luz."
+  dialogueID: vela_general

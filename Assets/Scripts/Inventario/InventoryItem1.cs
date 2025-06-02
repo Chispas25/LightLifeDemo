@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
-public class InventoryItem1 : ScriptableObject
+public class InventoryItem : ScriptableObject
 {
     public string itemName;
     public Sprite icon;
-    // Puedes añadir más propiedades como descripción, tipo, efectos, etc.
+
+    // Usar el ítem. El GameObject es quien lo usa.
+    public virtual bool Use(GameObject user)
+    {
+        Debug.Log($"Usando item base: {itemName}, sin efecto.");
+        return true; // Por defecto se consume
+    }
 }
