@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 1106359029786054743}
   - component: {fileID: 2512277257018465384}
   - component: {fileID: 5617551150080646952}
-  - component: {fileID: 848934594149194808}
-  - component: {fileID: 4048223575833640004}
+  - component: {fileID: 2485841861252354546}
   m_Layer: 0
   m_Name: Bola blanca
   m_TagString: Ball
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 510323b37fe20e94daaf6076aded1219, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -114,7 +113,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &5617551150080646952
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -150,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: -0.0011480749, y: 0}
   serializedVersion: 2
   m_Radius: 0.07340668
---- !u!114 &848934594149194808
+--- !u!114 &2485841861252354546
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,21 +158,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7048712290496002611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3df94ec5a3b8f248b26303a68a4ea2c, type: 3}
+  m_Script: {fileID: 11500000, guid: bb3d9378e2f473042b62814b500a4f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxForce: 10
---- !u!114 &4048223575833640004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7048712290496002611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609456a925fba6842a6bc6399880bc93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalBolas: 1
-  bolasMetidas: 0
+  objetivoHoyo: {fileID: 0}
+  fuerzaDisparo: 2
