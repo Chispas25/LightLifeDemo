@@ -20,12 +20,17 @@ public class AtkDef : MonoBehaviour
     private Vector2 moveInput = Vector2.zero;
     public Vector2 LastMoveDirection { get; private set; } = Vector2.down;
 
-    
+
+    public AudioClip fxhitSarten;
+    private AudioSource _audioManager;
+
+
 
     private void Start()
     {
         attackAnimator = GetComponent<Animator>();
         movementScript = GetComponent<PlayerMovement>();
+        
     }
 
     private void Update()
@@ -33,6 +38,7 @@ public class AtkDef : MonoBehaviour
         if (isAttacking)
         {
             currentFrame++;
+
 
             if (currentFrame == 5) // Ajusta el frame en el que el golpe ocurre
             {
@@ -50,6 +56,7 @@ public class AtkDef : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
+        
         if (context.started && !isAttacking)
         {
             attackAnimator.SetBool("Attack", true);

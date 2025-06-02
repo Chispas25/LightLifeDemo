@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Inicio y Pausa/PantallaInicioBien.unity
     guid: 6fb7f8b30830c1c4e8ba1a5b9bf04982
   - enabled: 1
-    path: Assets/Scenes/Inicio y Pausa/2plantabaja Antonio.unity
-    guid: 74995995240f33e4097a5a2b5204996e
+    path: Assets/Scenes/BETA.unity
+    guid: 35eea242b1e29f241aefece0ade94b1e
   m_configObjects: {}

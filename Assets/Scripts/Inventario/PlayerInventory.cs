@@ -152,8 +152,12 @@ public class PlayerInventory : MonoBehaviour
         if (item != null)
         {
             Debug.Log($"{gameObject.name} usa: {item.itemName}");
-            item.Use(gameObject); // Llama al método Use del ítem
-            RemoveItem(currentIndex);
+
+            bool consumed = item.Use(gameObject);
+            if (consumed)
+            {
+                RemoveItem(currentIndex);
+            }
         }
         else
         {
