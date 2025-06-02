@@ -39,10 +39,6 @@ public class BallScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (Input.GetKeyDown(KeyCode.P))
-    {
-        rb.velocity = Vector2.right * 5f;
-        Debug.Log("Prueba de movimiento");
-    }
+        
     }
 }
