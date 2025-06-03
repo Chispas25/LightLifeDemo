@@ -10,6 +10,8 @@ TagManager:
   - Player4
   - Patrulla
   - Opciones
+  - Ball
+  - BolaBillar
   layers:
   - Default
   - TransparentFX
