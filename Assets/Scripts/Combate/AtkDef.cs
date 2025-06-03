@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
@@ -134,4 +134,147 @@ public class AtkDef : MonoBehaviour
         Gizmos.color = new Color(1, 0, 0, 0.2f);
         Gizmos.DrawWireSphere(origin, radius);
     }
+}*/
+
+
+using UnityEngine;
+using UnityEngine.InputSystem;
+using System.Collections.Generic;
+
+public class AtkDef : MonoBehaviour
+{
+    private Animator attackAnimator;
+    public int framesToWait = 30;
+    private int currentFrame = 0;
+    private bool isAttacking = false;
+
+    [Header("Parámetros de ataque")]
+    public float attackRange = 1.5f;
+    public float attackDamage = 1f;
+    public LayerMask enemyLayer;
+    public Transform attackPoint;
+
+    private PlayerMovement movementScript;
+    public Vector2 LastMoveDirection { get; private set; } = Vector2.down;
+
+    [Header("Audio")]
+    public AudioClip fxhitSarten;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        attackAnimator = GetComponent<Animator>();
+        movementScript = GetComponent<PlayerMovement>();
+
+        // Asigna o agrega AudioSource
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
+
+    private void Update()
+    {
+        if (isAttacking)
+        {
+            currentFrame++;
+
+            if (currentFrame == 5) // Frame en el que se realiza el ataque
+            {
+                PerformAttack();
+            }
+
+            if (currentFrame > framesToWait)
+            {
+                currentFrame = 0;
+                attackAnimator.SetBool("Attack", false);
+                isAttacking = false;
+            }
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.started && !isAttacking)
+        {
+            attackAnimator.SetBool("Attack", true);
+            isAttacking = true;
+            currentFrame = 0;
+
+            // Sonido al pulsar ataque
+            if (fxhitSarten != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(fxhitSarten);
+            }
+        }
+    }
+
+    private void PerformAttack()
+    {
+        Vector2 attackDir = movementScript.LastMoveDirection;
+        Vector2 attackOrigin = (Vector2)transform.position + attackDir * attackRange;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackOrigin, attackRange, enemyLayer);
+        HashSet<EnemyHealth> damaged = new HashSet<EnemyHealth>();
+
+        foreach (Collider2D enemy in hits)
+        {
+            if (enemy.TryGetComponent<EnemyHealth>(out var enemyHealth) && !damaged.Contains(enemyHealth))
+            {
+                Vector2 dirToEnemy = (enemy.transform.position - transform.position).normalized;
+                float angle = Vector2.Angle(attackDir, dirToEnemy);
+
+                if (angle < 90f)
+                {
+                    damaged.Add(enemyHealth);
+                    Debug.Log($"Golpeando a {enemy.name}");
+
+                    enemyHealth.TakeDamage(attackDamage);
+
+                    // Retroceso opcional
+                    Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+                    if (rb != null)
+                    {
+                        Vector2 knockbackDir = (enemy.transform.position - transform.position).normalized;
+                        rb.AddForce(knockbackDir);
+                    }
+                }
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Vector2 dir;
+
+        if (Application.isPlaying && movementScript != null)
+        {
+            dir = movementScript.LastMoveDirection;
+        }
+        else
+        {
+            dir = Vector2.down;
+        }
+
+        float angleSpan = 180f;
+        int segments = 20;
+        float radius = attackRange;
+
+        Vector2 origin = (Vector2)transform.position;
+
+        Gizmos.color = Color.red;
+
+        for (int i = 0; i <= segments; i++)
+        {
+            float angle = -angleSpan / 2f + (angleSpan / segments) * i;
+            Vector2 rotatedDir = Quaternion.Euler(0, 0, angle) * dir.normalized;
+            Vector2 endPoint = origin + rotatedDir * radius;
+            Gizmos.DrawLine(origin, endPoint);
+        }
+
+        Gizmos.color = new Color(1, 0, 0, 0.2f);
+        Gizmos.DrawWireSphere(origin, radius);
+    }
 }
+
