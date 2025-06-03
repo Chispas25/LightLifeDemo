@@ -11,6 +11,9 @@ public class Paraactualizar : MonoBehaviour
     //a
     //a
     //a
+    //a
+    //a
+    
 
 
 

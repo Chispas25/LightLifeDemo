@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    //uwu owo mm kkk 
     public float moveSpeed = 5f;
     public Vector2 LastMoveDirection { get; private set; } = Vector2.down;
 
