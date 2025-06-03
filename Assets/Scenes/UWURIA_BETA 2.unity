@@ -297,6 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   llave: {fileID: 1765339849}
   promptUI: {fileID: 0}
+  audioSource: {fileID: 0}
   washingSound: {fileID: 0}
 --- !u!212 &160993
 SpriteRenderer:
@@ -746,8 +747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440170e39da63c841922d246b00ae2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
 --- !u!95 &24220520
 Animator:
   serializedVersion: 5
@@ -2063,8 +2062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440170e39da63c841922d246b00ae2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
 --- !u!95 &71730661
 Animator:
   serializedVersion: 5
@@ -3069,8 +3066,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440170e39da63c841922d246b00ae2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
 --- !u!95 &112239339
 Animator:
   serializedVersion: 5
@@ -27793,8 +27788,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440170e39da63c841922d246b00ae2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
 --- !u!95 &678154586
 Animator:
   serializedVersion: 5
@@ -33774,8 +33767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440170e39da63c841922d246b00ae2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
 --- !u!95 &921262149
 Animator:
   serializedVersion: 5
@@ -35010,8 +35001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440170e39da63c841922d246b00ae2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
 --- !u!95 &1013329282
 Animator:
   serializedVersion: 5
@@ -42305,8 +42294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440170e39da63c841922d246b00ae2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
 --- !u!95 &1137738732
 Animator:
   serializedVersion: 5
@@ -47424,7 +47411,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyID: llave_habitacion
   animator: {fileID: 0}
-  openSound: {fileID: 0}
 --- !u!1 &1346424380
 GameObject:
   m_ObjectHideFlags: 0
@@ -50778,8 +50764,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440170e39da63c841922d246b00ae2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
 --- !u!95 &1545093275
 Animator:
   serializedVersion: 5
@@ -52355,8 +52339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440170e39da63c841922d246b00ae2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
 --- !u!95 &1644642356
 Animator:
   serializedVersion: 5
@@ -53591,7 +53573,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyID: llave_generador
   animator: {fileID: 0}
-  openSound: {fileID: 0}
 --- !u!61 &1720352735
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59019,7 +59000,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyID: llave_final
   animator: {fileID: 0}
-  openSound: {fileID: 0}
 --- !u!1 &1808316912
 GameObject:
   m_ObjectHideFlags: 0
@@ -60044,8 +60024,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440170e39da63c841922d246b00ae2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
 --- !u!95 &1868814492
 Animator:
   serializedVersion: 5
@@ -65447,9 +65425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f516ae587adeb4181f77b321698074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bolasEnOrden: []
-  cooldownEntreDisparos: 2
-  llave: {fileID: 0}
 --- !u!114 &2014642554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81138,7 +81113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: f897103611fd58347922b6c5359d05f5, type: 2}
-  pickupSound: {fileID: 0}
 --- !u!61 &2037302725
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81429,7 +81403,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 1789d854cf605744ea32052917a6f909, type: 2}
-  pickupSound: {fileID: 0}
 --- !u!61 &2046910574
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81878,7 +81851,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyID: llave_billar
   animator: {fileID: 0}
-  openSound: {fileID: 0}
 --- !u!1 &2068816877
 GameObject:
   m_ObjectHideFlags: 0
@@ -82371,8 +82343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440170e39da63c841922d246b00ae2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
 --- !u!95 &2099699780
 Animator:
   serializedVersion: 5
@@ -82566,8 +82536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440170e39da63c841922d246b00ae2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
 --- !u!95 &2114108146
 Animator:
   serializedVersion: 5
