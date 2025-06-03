@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
@@ -50,4 +50,70 @@ public class ItemPickup : MonoBehaviour
             }
         }
     }
+}*/
+
+
+using UnityEngine;
+
+public class ItemPickup : MonoBehaviour
+{
+    public InventoryItem item;
+
+    [Header("Sonido")]
+    public AudioClip pickupSound;
+
+    private PlayerInventory playerInventory;
+    private bool canPickup = false;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        playerInventory = other.GetComponent<PlayerInventory>();
+        if (playerInventory != null)
+        {
+            canPickup = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.GetComponent<PlayerInventory>() == playerInventory)
+        {
+            canPickup = false;
+            playerInventory = null;
+        }
+    }
+
+    public void TryPickup()
+    {
+        if (canPickup && playerInventory != null)
+        {
+            if (playerInventory.AddItem(item))
+            {
+                PlayPickupSound();
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    public void TryPickupFromOutside(GameObject interactor)
+    {
+        var inventory = interactor.GetComponent<PlayerInventory>();
+        if (inventory != null)
+        {
+            if (inventory.AddItem(item))
+            {
+                PlayPickupSound();
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    private void PlayPickupSound()
+    {
+        if (pickupSound != null)
+        {
+            AudioSource.PlayClipAtPoint(pickupSound, transform.position);
+        }
+    }
 }
+
