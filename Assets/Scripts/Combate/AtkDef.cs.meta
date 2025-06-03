@@ -3,7 +3,9 @@ guid: ad8407ff8751f064aae537c61d671a67
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - attackPoint: {instanceID: 0}
+  - fxhitSarten: {fileID: 8300000, guid: bd351d80341c56540a85dd54aa511630, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
